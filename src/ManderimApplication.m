@@ -29,7 +29,7 @@
 
 
 
-+ (NSCursor*)createCursorFromBasename:(NSString*)basename pointX:(double)x pointY:(double)y{
++ (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(double)x pointY:(double)y{
   #if defined __MAC_10_7
     // Starting with MAC OS X, HIDPI allows to provide 2 Cursors in 1 TIFF
     // To make this work, you have to compile this code in XCode 4. The cursor
@@ -40,7 +40,7 @@
   #endif
   NSURL* url = [[NSBundle mainBundle] URLForResource:basename withExtension:cursorsuffix];
   NSImage* cursorimage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
-  return [[[NSCursor alloc] initWithImage:cursorimage hotSpot:NSMakePoint(x, y)] autorelease];
+  return [[NSCursor alloc] initWithImage:cursorimage hotSpot:NSMakePoint(x, y)];
 }
 
 

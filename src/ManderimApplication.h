@@ -13,7 +13,7 @@
 - (id)initWithDescription:(NSString*)desc;
 - (IBAction)showAbout:(id)sender;
 
-+ (NSCursor*)createCursorFromBasename:(NSString*)basename pointX:(double)x pointY:(double)y;
++ (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(double)x pointY:(double)y;
 + (CGFloat)getUIScaleFactorForWindow:(NSWindow*)window;
 + (CGFloat)getWindowBottomBorder;
 + (void)openDocumentWithURL:(NSURL*)url;
