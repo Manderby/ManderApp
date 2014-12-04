@@ -6,8 +6,8 @@
 
 
 
-
 - (void)awakeFromNib{
+
   NSURL* url;
   NSString* applicationstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"];
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
@@ -26,7 +26,8 @@
 
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-  [version setStringValue:[NSString stringWithFormat:@"%@%@", @"Version ", versionstring]];
+  NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+  [version setStringValue:[NSString stringWithFormat:@"Version %@ (Build %@)", versionstring, buildstring]];
 
 
   // Set the Link to Manderim
@@ -51,8 +52,14 @@
 }
 
 
+
+
 - (void)setDescription:(NSString*)desc{
-  [aboutdescription setStringValue:desc];
+  if(desc){
+    [aboutdescription setStringValue:desc];
+  }else{
+    [aboutdescription setStringValue:@""];
+  }
 }
 
 
