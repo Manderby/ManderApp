@@ -9,7 +9,6 @@
   IBOutlet NSTextField* websitelink;
   IBOutlet NSImageView* iconview;
 }
-- (void)setDescription:(NSString*)desc;
 - (void)showDialog;
 - (IBAction)goToWebsite:(id)sender;
 

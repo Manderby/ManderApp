@@ -5,21 +5,28 @@
 @implementation ManderimAboutWindowController
 
 
+#define MANDERIM_APPLICATION_DESCRIPTION_KEY @"ManderimApplicationDescription"
+#define MANDERIM_APPLICATION_ABOUT_KEY @"ManderimApplicationAbout"
+
 
 - (void)awakeFromNib{
 
   NSURL* url;
-  NSString* applicationstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"];
+  NSString* applicationstring = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleName" value:nil table:@"InfoPlist"];
+  if(!applicationstring){
+    applicationstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+  }
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
-
+\
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
   NSImage* iconimage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
   [iconview setImage:iconimage];
 
   // Set the window title
-  [[self window] setTitle:[NSString stringWithFormat:@"%@%@", @"About ", applicationstring]];
+  NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_ABOUT_KEY value:nil table:@"ManderimApplication"];
+  [[self window] setTitle:[NSString stringWithFormat:@"%@ %@", aboutstring, applicationstring]];
 
   // Set the application name
   [applicationname setStringValue:applicationstring];
@@ -29,6 +36,8 @@
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
   [version setStringValue:[NSString stringWithFormat:@"Version %@ (Build %@)", versionstring, buildstring]];
 
+  NSString* descriptionstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_DESCRIPTION_KEY value:nil table:nil];
+  [aboutdescription setStringValue:descriptionstring];
 
   // Set the Link to Manderim
   
@@ -52,15 +61,6 @@
 }
 
 
-
-
-- (void)setDescription:(NSString*)desc{
-  if(desc){
-    [aboutdescription setStringValue:desc];
-  }else{
-    [aboutdescription setStringValue:@""];
-  }
-}
 
 
 - (void)showDialog{

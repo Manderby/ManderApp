@@ -55,7 +55,6 @@
     [registermenuitem release];
     [registrationthread release];
   #endif
-  [(id)metadata[MANDERIM_METADATA_DESCRIPTION] release];
   free(metadata[MANDERIM_METADATA_PRICE]);
   [super dealloc];
 }
@@ -64,7 +63,6 @@
 
 - (IBAction)showAbout:(id)sender{
   if(!aboutwindowcontroller){[NSBundle loadNibNamed:@"ManderimAboutWindow" owner:self];}
-  [aboutwindowcontroller setDescription:metadata[MANDERIM_METADATA_DESCRIPTION]];
   [aboutwindowcontroller showDialog];
 }
 

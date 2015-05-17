@@ -6,8 +6,9 @@
 #include "NASystem.h"
 
 
+
+
 typedef enum{
-  MANDERIM_METADATA_DESCRIPTION = 0,  // (id)
   MANDERIM_METADATA_PRICE,            // (NAInt*)
   MANDERIM_METADATA_COUNT
 } ManderimMetaData;
