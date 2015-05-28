@@ -12,9 +12,9 @@
 - (void)awakeFromNib{
 
   NSURL* url;
-  NSString* applicationstring = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleName" value:nil table:@"InfoPlist"];
+  NSString* applicationstring = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
   if(!applicationstring){
-    applicationstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+    applicationstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
   }
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
