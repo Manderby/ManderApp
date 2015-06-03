@@ -69,6 +69,7 @@
 
 
 - (IBAction)goToWebsite:(id)sender{
+  NA_UNUSED(sender);
   [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderim.ch"]];
 }
 

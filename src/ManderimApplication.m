@@ -16,6 +16,7 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
+  NA_UNUSED(notification);
   NSMenu* applicationmenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
   NSMenuItem* aboutmenuitem = [applicationmenu itemAtIndex:0];
   [aboutmenuitem setTarget:self];
@@ -32,6 +33,7 @@
 
 
 - (IBAction)showAbout:(id)sender{
+  NA_UNUSED(sender);
   if(!aboutwindowcontroller){[NSBundle loadNibNamed:@"ManderimAboutWindow" owner:self];}
   [aboutwindowcontroller showDialog];
 }
