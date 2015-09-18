@@ -17,6 +17,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
+
+  aboutWindowNibObjects = nil;
+  
   NSMenu* applicationmenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
   NSMenuItem* aboutmenuitem = [applicationmenu itemAtIndex:0];
   [aboutmenuitem setTarget:self];
@@ -27,14 +30,36 @@
 
 - (void)dealloc{
   [aboutwindowcontroller release];
+  [aboutWindowNibObjects release];
   [super dealloc];
 }
 
 
 
-- (IBAction)showAbout:(id)sender{
+- (void)showAbout:(id)sender{
   NA_UNUSED(sender);
-  if(!aboutwindowcontroller){[NSBundle loadNibNamed:@"ManderimAboutWindow" owner:self];}
+  
+  if(!aboutWindowNibObjects){
+    if([[NSBundle mainBundle] respondsToSelector:@selector(loadNibNamed:owner:topLevelObjects:)]){
+      #ifdef __MAC_10_8
+        NSArray* topLevelObjects;
+        if(!aboutwindowcontroller){
+          BOOL success = [[NSBundle mainBundle] loadNibNamed:@"ManderimAboutWindow" owner:self topLevelObjects:&topLevelObjects];
+          if(success){
+            aboutWindowNibObjects = [[NSArray alloc] initWithArray:topLevelObjects];
+          }else{
+            return;
+          }
+        }
+      
+      #endif
+    }else{
+      #ifndef __MAC_10_8
+        if(!aboutwindowcontroller){[NSBundle loadNibNamed:@"ManderimAboutWindow" owner:self];}
+      #endif
+    }
+  }
+
   [aboutwindowcontroller showDialog];
 }
 
@@ -56,19 +81,27 @@
 }
 
 
+
 + (CGFloat) getUIScaleFactorForWindow:(NSWindow*)window{
   #ifdef NSAppKitVersionNumber10_7
     if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_7){
-      #if defined __MAC_10_7
+      #ifdef __MAC_10_7
         return [window backingScaleFactor];
+      #else
+        return 1;
       #endif
     }else{
-      return [window userSpaceScaleFactor];
+      #ifndef __MAC_10_7
+        return [window userSpaceScaleFactor];
+      #else
+        return 1;
+      #endif
     }
   #else
     return [window userSpaceScaleFactor];
   #endif
 }
+
 
 
 + (CGFloat)getWindowBottomBorder{
@@ -80,14 +113,21 @@
 }
 
 
+
 + (void)openDocumentWithURL:(NSURL*)url{
   if([[NSDocumentController sharedDocumentController] respondsToSelector:@selector(openDocumentWithContentsOfURL:display:completionHandler:)]){
     #if defined __MAC_10_7
-      [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:nil];
+      [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error){
+        NA_UNUSED(document);
+        NA_UNUSED(documentWasAlreadyOpen);
+        NA_UNUSED(error);
+      }];
     #endif
   }else{
     [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES error:nil];
   }
 }
+
+
 
 @end

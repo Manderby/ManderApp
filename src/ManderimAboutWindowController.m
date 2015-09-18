@@ -51,7 +51,7 @@
   url = [NSURL URLWithString:@"http://manderim.ch"];
   [attrString beginEditing];
   [attrString addAttribute:NSLinkAttributeName value:[url absoluteString] range:range];
-  [attrString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSSingleUnderlineStyle] range:range];
+  [attrString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:range];
   [attrString addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:range];
   [attrString endEditing];
 

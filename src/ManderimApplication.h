@@ -12,9 +12,10 @@
 
 @interface ManderimApplication : NSApplication <NSApplicationDelegate> {
   ManderimAboutWindowController* aboutwindowcontroller;
+  NSArray* aboutWindowNibObjects;
 }
 
-- (IBAction)showAbout:(id)sender;
+- (void)showAbout:(id)sender;
 
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;
 + (CGFloat)getUIScaleFactorForWindow:(NSWindow*)window;
