@@ -1,5 +1,6 @@
 
 #import "ManderimAboutWindowController.h"
+#import "ManderimApplication.h"
 
 
 @implementation ManderimAboutWindowController
@@ -12,13 +13,10 @@
 - (void)awakeFromNib{
 
   NSURL* url;
-  NSString* applicationstring = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
-  if(!applicationstring){
-    applicationstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-  }
+  NSString* applicationname = [(ManderimApplication*)NSApp applicationName];
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
-\
+
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
   NSImage* iconimage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
@@ -26,10 +24,10 @@
 
   // Set the window title
   NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_ABOUT_KEY value:nil table:@"ManderimApplication"];
-  [[self window] setTitle:[NSString stringWithFormat:@"%@ %@", aboutstring, applicationstring]];
+  [[self window] setTitle:[NSString stringWithFormat:aboutstring, applicationname]];
 
   // Set the application name
-  [applicationname setStringValue:applicationstring];
+  [applicationnamefield setStringValue:applicationname];
 
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
@@ -67,11 +65,6 @@
   [[self window] makeKeyAndOrderFront:self];
 }
 
-
-- (IBAction)goToWebsite:(id)sender{
-  NA_UNUSED(sender);
-  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://manderim.ch"]];
-}
 
 @end
 

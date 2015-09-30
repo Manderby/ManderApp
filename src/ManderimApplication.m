@@ -2,7 +2,7 @@
 
 #import "ManderimApplication.h"
 #import "ManderimAboutWindowController.h"
-#include "NADateTime.h"
+#import "ManderimHelpWindowController.h"
 
 
 @implementation ManderimApplication
@@ -18,24 +18,27 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
 
+  aboutwindowcontroller = nil;
   aboutWindowNibObjects = nil;
-  
   NSMenu* applicationmenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
   NSMenuItem* aboutmenuitem = [applicationmenu itemAtIndex:0];
   [aboutmenuitem setTarget:self];
   [aboutmenuitem setAction:@selector(showAbout:)];
   
+  helpwindowcontroller = nil;
 }
 
 
 - (void)dealloc{
   [aboutwindowcontroller release];
   [aboutWindowNibObjects release];
+  [helpwindowcontroller release];
   [super dealloc];
 }
 
 
 
+// Note: the sender is needed as these methods are used as an action.
 - (void)showAbout:(id)sender{
   NA_UNUSED(sender);
   
@@ -64,6 +67,35 @@
 }
 
 
+
+- (void)setHelpDocument:(NSURL*)url forMenuItem:(NSMenuItem*)menuitem{
+  if(!helpwindowcontroller){
+    helpwindowcontroller = [[ManderimHelpWindowController alloc] init];
+  }
+  [helpwindowcontroller setBaseURL:url];
+
+  [menuitem setTarget:self];
+  [menuitem setAction:@selector(showHelp:)];
+}
+
+
+
+// Note: the sender is needed as these methods are used as an action.
+- (void)showHelp:(id)sender{
+  NA_UNUSED(sender);
+  if(!helpwindowcontroller){return;}
+  [helpwindowcontroller showDialog];
+}
+
+
+
+- (NSString*)applicationName{
+  NSString* applicationname = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
+  if(!applicationname){
+    applicationname = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+  }
+  return applicationname;
+}
 
 
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y{

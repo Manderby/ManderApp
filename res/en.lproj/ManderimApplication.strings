@@ -1,4 +1,9 @@
 
 /* Strings for ManderimAboutWindowController.m */
-ManderimApplicationAbout = "About";
+/* The %@ denotes the application name */
+ManderimApplicationAbout = "About %@";
+ManderimApplicationHelp = "%@ Help";
 
+/* The following key will be displayed in the about window. Define it in you
+   own applications Localizable.strings file.*/
+/* ManderimApplicationDescription = "This line is displayed in the About."; */
