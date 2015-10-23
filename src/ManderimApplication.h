@@ -1,5 +1,6 @@
 // Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
 
+#include "ManderimApplicationConfiguration.h"
 
 #import <Cocoa/Cocoa.h>
 #include "NASystem.h"
@@ -12,17 +13,18 @@
 
 
 @interface ManderimApplication : NSApplication <NSApplicationDelegate> {
+  IBOutlet NSMenuItem* aboutMenuItem;
+  IBOutlet NSMenuItem* helpMenuItem;
   IBOutlet ManderimAboutWindowController* aboutwindowcontroller;
-  NSArray* aboutWindowNibObjects;
   ManderimHelpWindowController* helpwindowcontroller;
+  NSArray* aboutWindowNibObjects;
 }
 
-// If there is a HTML help which shall be displayed for a specific menu item,
-// set it with the setHelpDocument. Everything else will be taken care of.
-- (void)setHelpDocument:(NSURL*)url forMenuItem:(NSMenuItem*)menuitem;
+- (void)setHelpDocument:(NSURL*)url;
 
 - (NSString*)applicationName;
 
++ (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;
 + (CGFloat)getUIScaleFactorForWindow:(NSWindow*)window;
 + (CGFloat)getWindowBottomBorder;

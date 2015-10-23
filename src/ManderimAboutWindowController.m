@@ -1,6 +1,5 @@
 
 #import "ManderimAboutWindowController.h"
-#import "ManderimApplication.h"
 
 
 @implementation ManderimAboutWindowController

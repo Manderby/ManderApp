@@ -2,39 +2,49 @@
 
 
 
+#import "ManderimApplication.h"
+
 #define MANDERIM_APPLICATION_HELP_KEY @"ManderimApplicationHelp"
 
 #import "ManderimHelpWindowController.h"
-#import "ManderimApplication.h"
-
 
 @implementation ManderimHelpWindowController
 
 -(id)init{
 
-  NSRect windowrect = NSMakeRect(100, 100, 400, 400);
-  NSWindow* window = [[NSWindow alloc] initWithContentRect:windowrect styleMask:NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask backing:NSBackingStoreBuffered defer:YES];
-  self = [super initWithWindow:window];
+  #if defined MANDERIM_APPLICATION_USES_WEB_HELP
+    NSRect windowrect = NSMakeRect(100, 100, 800, 400);
+    NSWindow* window = [[NSWindow alloc] initWithContentRect:windowrect styleMask:NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask backing:NSBackingStoreBuffered defer:YES];
+    self = [super initWithWindow:window];
 
-  // Set the window title
-  NSString* helpstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_HELP_KEY value:nil table:@"ManderimApplication"];
-  [[self window] setTitle:[NSString stringWithFormat:helpstring, [(ManderimApplication*)NSApp applicationName]]];
+    // Set the window title
+    NSString* helpstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_HELP_KEY value:nil table:@"ManderimApplication"];
+    [[self window] setTitle:[NSString stringWithFormat:helpstring, [(ManderimApplication*)NSApp applicationName]]];
 
 
 
-  webview = [[WebView alloc] initWithFrame:[[[self window] contentView] frame] frameName:nil groupName:nil];
-  [webview setAutoresizingMask:NSViewMinXMargin | NSViewWidthSizable | NSViewMaxXMargin | NSViewMinYMargin | NSViewHeightSizable | NSViewMaxYMargin];
+    webview = [[WebView alloc] initWithFrame:[[[self window] contentView] frame] frameName:nil groupName:nil];
+    [webview setAutoresizingMask:NSViewMinXMargin | NSViewWidthSizable | NSViewMaxXMargin | NSViewMinYMargin | NSViewHeightSizable | NSViewMaxYMargin];
+    
+    
+    [[self window] setContentView:webview];
+    
+    return self;
+
+  #else
   
+    return [super init];
   
-  [[self window] setContentView:webview];
+  #endif
   
-  return self;
 }
 
 
 
 - (void)dealloc{
-  [webview release];
+  #if defined MANDERIM_APPLICATION_USES_WEB_HELP
+    [webview release];
+  #endif
   [baseurl release];
   [super dealloc];
 }
@@ -48,8 +58,18 @@
 
 
 - (void)setBaseURL:(NSURL*)url{
-  baseurl = [url retain];
-  [[webview mainFrame] loadRequest:[NSURLRequest requestWithURL:baseurl]];
+  #if defined MANDERIM_APPLICATION_USES_WEB_HELP
+    baseurl = [url retain];
+    [[webview mainFrame] loadRequest:[NSURLRequest requestWithURL:baseurl]];
+  #else
+    NA_UNUSED(url);
+    #ifndef NDEBUG
+      naError("setBaseURL", "Web Help viewer requires MANDERIM_APPLICATION_USES_WEB_HELP in ManderimApplicationConfiguration.h");
+    #endif
+  #endif
 }
 
 @end
+
+
+

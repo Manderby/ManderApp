@@ -1,13 +1,18 @@
 // Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
 
 
-#import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
+#import "ManderimApplication.h"
+
+#if defined MANDERIM_APPLICATION_USES_WEB_HELP
+  #import <WebKit/WebKit.h>
+#endif
 
 
 @interface ManderimHelpWindowController : NSWindowController <NSWindowDelegate>{
   NSURL* baseurl;
-  WebView* webview;
+  #if defined MANDERIM_APPLICATION_USES_WEB_HELP
+    WebView* webview;
+  #endif
 }
 
 - (id)init;
@@ -15,3 +20,5 @@
 - (void)setBaseURL:(NSURL*)url;
 
 @end
+
+

@@ -42,40 +42,22 @@
 - (void)showAbout:(id)sender{
   NA_UNUSED(sender);
   
-  if(!aboutWindowNibObjects){
-    if([[NSBundle mainBundle] respondsToSelector:@selector(loadNibNamed:owner:topLevelObjects:)]){
-      #ifdef __MAC_10_8
-        NSArray* topLevelObjects;
-        if(!aboutwindowcontroller){
-          BOOL success = [[NSBundle mainBundle] loadNibNamed:@"ManderimAboutWindow" owner:self topLevelObjects:&topLevelObjects];
-          if(success){
-            aboutWindowNibObjects = [[NSArray alloc] initWithArray:topLevelObjects];
-          }else{
-            return;
-          }
-        }
-      
-      #endif
-    }else{
-      #ifndef __MAC_10_8
-        if(!aboutwindowcontroller){[NSBundle loadNibNamed:@"ManderimAboutWindow" owner:self];}
-      #endif
-    }
-  }
-
+  BOOL nibloaded = [ManderimApplication loadNibNamed:@"ManderimAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
+  if(!nibloaded){return;}
+  
   [aboutwindowcontroller showDialog];
 }
 
 
 
-- (void)setHelpDocument:(NSURL*)url forMenuItem:(NSMenuItem*)menuitem{
+- (void)setHelpDocument:(NSURL*)url{
   if(!helpwindowcontroller){
     helpwindowcontroller = [[ManderimHelpWindowController alloc] init];
   }
   [helpwindowcontroller setBaseURL:url];
 
-  [menuitem setTarget:self];
-  [menuitem setAction:@selector(showHelp:)];
+  [helpMenuItem setTarget:self];
+  [helpMenuItem setAction:@selector(showHelp:)];
 }
 
 
@@ -96,6 +78,29 @@
   }
   return applicationname;
 }
+
+
+
+
++ (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects{
+  BOOL success = NO;
+  if(!testObject){
+    if([[NSBundle mainBundle] respondsToSelector:@selector(loadNibNamed:owner:topLevelObjects:)]){
+      #ifdef __MAC_10_8
+        NSArray* topLevelObjects;
+        success = [[NSBundle mainBundle] loadNibNamed:nibName owner:owner topLevelObjects:&topLevelObjects];
+        if(success){
+          *objects = [[NSArray alloc] initWithArray:topLevelObjects];
+        }
+      #endif
+    }else{
+      [NSBundle loadNibNamed:nibName owner:owner];
+      success = (testObject?YES:NO);
+    }
+  }
+  return success;
+}
+
 
 
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y{

@@ -1,6 +1,5 @@
 
-#import <Cocoa/Cocoa.h>
-#include "NASystem.h"
+#import "ManderimApplication.h"
 
 @interface ManderimAboutWindowController : NSWindowController {
   IBOutlet NSTextField* applicationnamefield;
