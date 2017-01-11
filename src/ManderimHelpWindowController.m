@@ -3,8 +3,7 @@
 
 
 #import "ManderimApplication.h"
-
-#define MANDERIM_APPLICATION_HELP_KEY @"ManderimApplicationHelp"
+#import "ManderimApplicationStringConstants.h"
 
 #import "ManderimHelpWindowController.h"
 

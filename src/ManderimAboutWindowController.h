@@ -7,6 +7,7 @@
   IBOutlet NSTextField* version;
   IBOutlet NSTextField* websitelink;
   IBOutlet NSImageView* iconview;
+  IBOutlet NSButton* donebutton;
 }
 - (void)showDialog;
 

@@ -3,6 +3,8 @@
 /* The %@ denotes the application name */
 ManderimApplicationAbout = "About %@";
 ManderimApplicationHelp = "%@ Help";
+ManderimApplicationPreferences = "%@ Preferences";
+ManderimApplicationDone = "Done";
 
 /* The following key will be displayed in the about window. Define it in you
    own applications Localizable.strings file.*/

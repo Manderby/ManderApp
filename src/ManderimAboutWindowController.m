@@ -1,12 +1,10 @@
 
 #import "ManderimAboutWindowController.h"
+#import "ManderimApplicationStringConstants.h"
 
 
 @implementation ManderimAboutWindowController
 
-
-#define MANDERIM_APPLICATION_DESCRIPTION_KEY @"ManderimApplicationDescription"
-#define MANDERIM_APPLICATION_ABOUT_KEY @"ManderimApplicationAbout"
 
 
 - (void)awakeFromNib{
@@ -16,14 +14,18 @@
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
+  // Set the window title
+  NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_ABOUT_KEY value:nil table:@"ManderimApplication"];
+  [[self window] setTitle:[NSString stringWithFormat:aboutstring, applicationname]];
+
+  // Set the button text
+  NSString* donestring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_DONE_KEY value:nil table:@"ManderimApplication"];
+  [donebutton setTitle:donestring];
+
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
   NSImage* iconimage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
   [iconview setImage:iconimage];
-
-  // Set the window title
-  NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_ABOUT_KEY value:nil table:@"ManderimApplication"];
-  [[self window] setTitle:[NSString stringWithFormat:aboutstring, applicationname]];
 
   // Set the application name
   [applicationnamefield setStringValue:applicationname];

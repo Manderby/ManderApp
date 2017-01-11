@@ -2,6 +2,8 @@
 /* Strings for ManderimAboutWindowController.m */
 /* The %@ denotes the application name */
 ManderimApplicationAbout = "Über %@";
+ManderimApplicationPreferences = "%@ Einstellungen";
+ManderimApplicationDone = "Fertig";
 ManderimApplicationHelp = "%@ Hilfe";
 
 /* The following key will be displayed in the about window. Define it in you
