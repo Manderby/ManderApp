@@ -30,7 +30,21 @@
 + (CGFloat)getWindowBottomBorder;
 + (void)openDocumentWithURL:(NSURL*)url;
 
-+ (void)initUserDefault:(NSUserDefaults*) userdefaults key:(NSString*)key intValue:(NSInteger)value;
-+ (void)initUserDefault:(NSUserDefaults*) userdefaults key:(NSString*)key doubleValue:(double)value;
+
+// Sets an initial default value if the given key is zero.
++ (void)initUserDefaultBoolValue:(NABool)value forKey:(NSString*)key;
++ (void)initUserDefaultIntValue:(NSInteger)value forKey:(NSString*)key;
++ (void)initUserDefaultDoubleValue:(double)value forKey:(NSString*)key;
+
++ (void)setUserDefaultBoolValue:(NABool)value forKey:(NSString*)key;
++ (void)setUserDefaultIntValue:(NSInteger)value forKey:(NSString*)key;
++ (void)setUserDefaultDoubleValue:(double)value forKey:(NSString*)key;
+
++ (NABool)getUserDefaultBoolValueForKey:(NSString*)key;
++ (NAInt)getUserDefaultIntValueForKey:(NSString*)key;
++ (double)getUserDefaultDoubleValueForKey:(NSString*)key;
+
++ (NABool)toggleUserDefaultBoolValueForKey:(NSString*)key;
+
 
 @end
