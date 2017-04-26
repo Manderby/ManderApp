@@ -30,4 +30,7 @@
 + (CGFloat)getWindowBottomBorder;
 + (void)openDocumentWithURL:(NSURL*)url;
 
++ (void)initUserDefault:(NSUserDefaults*) userdefaults key:(NSString*)key intValue:(NSInteger)value;
++ (void)initUserDefault:(NSUserDefaults*) userdefaults key:(NSString*)key doubleValue:(double)value;
+
 @end

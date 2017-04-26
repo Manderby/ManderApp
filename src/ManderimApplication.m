@@ -166,5 +166,19 @@
 }
 
 
++ (void)initUserDefault:(NSUserDefaults*) userdefaults key:(NSString*)key intValue:(NSInteger)value{
+  if([userdefaults integerForKey:key] == 0){
+    [userdefaults setInteger:value forKey:key];
+  }
+}
+
+
+
++ (void)initUserDefault:(NSUserDefaults*) userdefaults key:(NSString*)key doubleValue:(double)value{
+  if([userdefaults doubleForKey:key] == 0.){
+    [userdefaults setDouble:value forKey:key];
+  }
+}
+
 
 @end
