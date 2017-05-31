@@ -42,8 +42,10 @@
 - (void)showAbout:(id)sender{
   NA_UNUSED(sender);
   
-  BOOL nibloaded = [ManderimApplication loadNibNamed:@"ManderimAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
-  if(!nibloaded){return;}
+  if(!aboutwindowcontroller){
+    BOOL nibloaded = [ManderimApplication loadNibNamed:@"ManderimAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
+    if(!nibloaded){return;}
+  }
   
   [aboutwindowcontroller showDialog];
 }
