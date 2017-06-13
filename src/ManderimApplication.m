@@ -108,8 +108,8 @@
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y{
   #if defined __MAC_10_7
     // Starting with MAC OS X, HIDPI allows to provide 2 Cursors in 1 TIFF
-    // To make this work, you have to compile this code in XCode 4. The cursor
-    // images must be present as 2 images with the names ???.png and ???@2x.png
+    // To make this work, you have to compile this code in XCode 4 or higher.
+    // The cursor images must be present as 2 images with the names ???.png and ???@2x.png
     NSString* cursorsuffix = @"tiff";
   #else
     NSString* cursorsuffix = @"png";
