@@ -1,6 +1,7 @@
 // Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
 
-#include "ManderimApplicationConfiguration.h"
+#include "MandConfiguration.h"
+#include "MandMenuHelper.h"
 
 #import <Cocoa/Cocoa.h>
 #include "NASystem.h"
@@ -8,15 +9,16 @@
 
 
 
-@class ManderimAboutWindowController;
-@class ManderimHelpWindowController;
+@class MandAboutWindowController;
+@class MandHelpWindowController;
 
 
-@interface ManderimApplication : NSApplication <NSApplicationDelegate> {
+@interface MandApplication : NSApplication <NSApplicationDelegate> {
+  IBOutlet NSMenu* menu;
   IBOutlet NSMenuItem* aboutMenuItem;
   IBOutlet NSMenuItem* helpMenuItem;
-  IBOutlet ManderimAboutWindowController* aboutwindowcontroller;
-  ManderimHelpWindowController* helpwindowcontroller;
+  IBOutlet MandAboutWindowController* aboutwindowcontroller;
+  MandHelpWindowController* helpwindowcontroller;
   NSArray* aboutWindowNibObjects;
 }
 
@@ -34,14 +36,17 @@
 // Sets an initial default value if the given key is zero.
 + (void)initUserDefaultBoolValue:(NABool)value forKey:(NSString*)key;
 + (void)initUserDefaultIntValue:(NSInteger)value forKey:(NSString*)key;
++ (void)initUserDefaultEnumValue:(NAInt)value forKey:(NSString*)key;
 + (void)initUserDefaultDoubleValue:(double)value forKey:(NSString*)key;
 
 + (void)setUserDefaultBoolValue:(NABool)value forKey:(NSString*)key;
 + (void)setUserDefaultIntValue:(NSInteger)value forKey:(NSString*)key;
++ (void)setUserDefaultEnumValue:(NAInt)value forKey:(NSString*)key;
 + (void)setUserDefaultDoubleValue:(double)value forKey:(NSString*)key;
 
 + (NABool)getUserDefaultBoolValueForKey:(NSString*)key;
 + (NAInt)getUserDefaultIntValueForKey:(NSString*)key;
++ (NAInt)getUserDefaultEnumValueForKey:(NSString*)key;
 + (double)getUserDefaultDoubleValueForKey:(NSString*)key;
 
 + (NABool)toggleUserDefaultBoolValueForKey:(NSString*)key;

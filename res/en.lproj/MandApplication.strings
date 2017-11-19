@@ -1,0 +1,46 @@
+
+/* Strings for MandAboutWindowController.m */
+/* The %@ denotes the application name */
+MandAbout              = "About %@";
+MandHelp               = "%@ Help";
+MandPreferences        = "%@ Preferences";
+MandDone               = "Done";
+
+MandSubmenuAbout       = "About %@";
+MandSubmenuPreferences = "Preferences ...";
+MandSubmenuServices    = "Services";
+MandSubmenuHideApp     = "Hide %@";
+MandSubmenuHideOthers  = "Hide others";
+MandSubmenuShowAllApps = "Show all";
+MandSubmenuQuitApp     = "Quit %@";
+
+MandMenuFile           = "File";
+MandSubmenuNew         = "New";
+MandSubmenuOpen        = "Open";
+MandSubmenuRecentDocs  = "Recent Documents";
+MandSubmenuClose       = "Close";
+MandSubmenuSave        = "Save";
+MandSubmenuSaveAs      = "Save As ...";
+MandSubmenuExport      = "Export ...";
+MandSubmenuRevert      = "Revert to last saved";
+MandSubmenuPageSetup   = "Page setup ...";
+MandSubmenuPrint       = "Print ...";
+
+MandMenuEdit           = "Edit";
+MandSubmenuUndo        = "Undo";
+MandSubmenuRedo        = "Redo";
+MandSubmenuCut         = "Cut";
+MandSubmenuCopy        = "Copy";
+MandSubmenuPaste       = "Paste";
+MandSubmenuClear       = "Clear";
+MandSubmenuSelectAll   = "Select all";
+MandSubmenuDeselectAll = "Deselect all";
+
+MandMenuWindow             = "Window";
+MandSubmenuMinimize        = "Minimize";
+MandSubmenuMaximize        = "Maximize";
+MandSubmenuBringAllToFront = "Bring all to front";
+
+/* The following key will be displayed in the about window. Define it in you
+   own applications Localizable.strings file.*/
+/* MandDescription = "This line is displayed in the About."; */

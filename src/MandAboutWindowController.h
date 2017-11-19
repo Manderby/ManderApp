@@ -1,7 +1,7 @@
 
-#import "ManderimApplication.h"
+#import "MandApplication.h"
 
-@interface ManderimAboutWindowController : NSWindowController {
+@interface MandAboutWindowController : NSWindowController {
   IBOutlet NSTextField* applicationnamefield;
   IBOutlet NSTextField* aboutdescription;
   IBOutlet NSTextField* version;

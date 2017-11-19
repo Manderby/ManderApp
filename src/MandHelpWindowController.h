@@ -1,16 +1,16 @@
 // Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
 
 
-#import "ManderimApplication.h"
+#import "MandApplication.h"
 
-#if defined MANDERIM_APPLICATION_USES_WEB_HELP
+#if defined MAND_USES_WEB_HELP
   #import <WebKit/WebKit.h>
 #endif
 
 
-@interface ManderimHelpWindowController : NSWindowController <NSWindowDelegate>{
+@interface MandHelpWindowController : NSWindowController <NSWindowDelegate>{
   NSURL* baseurl;
-  #if defined MANDERIM_APPLICATION_USES_WEB_HELP
+  #if defined MAND_USES_WEB_HELP
     WebView* webview;
   #endif
 }

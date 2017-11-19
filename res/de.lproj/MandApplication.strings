@@ -1,0 +1,46 @@
+
+/* Strings for MandAboutWindowController.m */
+/* The %@ denotes the application name */
+MandAbout             = "Über %@";
+MandPreferences       = "%@ Einstellungen";
+MandDone              = "Fertig";
+MandHelp              = "%@ Hilfe";
+
+MandSubmenuAbout       = "Über %@";
+MandSubmenuPreferences = "Einstellungen ...";
+MandSubmenuServices    = "Dienste";
+MandSubmenuHideApp     = "%@ verstecken";
+MandSubmenuHideOthers  = "Andere verstecken";
+MandSubmenuShowAllApps = "Alle anzeigen";
+MandSubmenuQuitApp     = "%@ beenden";
+
+MandMenuFile           = "Datei";
+MandSubmenuNew         = "Neu";
+MandSubmenuOpen        = "Öffnen";
+MandSubmenuRecentDocs  = "Letzte Dokumente";
+MandSubmenuClose       = "Schliessen";
+MandSubmenuSave        = "Speichern";
+MandSubmenuSaveAs      = "Speichern als ...";
+MandSubmenuExport      = "Exportieren ...";
+MandSubmenuRevert      = "Zurück zur letzten Speicherung";
+MandSubmenuPageSetup   = "Drucker-Seiteneinrichtung ...";
+MandSubmenuPrint       = "Drucken ...";
+
+MandMenuEdit           = "Editieren";
+MandSubmenuUndo        = "Rückgängig";
+MandSubmenuRedo        = "Wiederholen";
+MandSubmenuCut         = "Ausschneiden";
+MandSubmenuCopy        = "Kopieren";
+MandSubmenuPaste       = "Einfügen";
+MandSubmenuClear       = "Löschen";
+MandSubmenuSelectAll   = "Alles auswählen";
+MandSubmenuDeselectAll = "Auswahl verwerfen";
+
+MandMenuWindow             = "Fenster";
+MandSubmenuMinimize        = "Minimieren";
+MandSubmenuMaximize        = "Maximieren";
+MandSubmenuBringAllToFront = "Alle nach vorne bringen";
+
+/* The following key will be displayed in the about window. Define it in you
+   own applications Localizable.strings file.*/
+/* MandDescription = "Diese Zeile wird im About gezeigt."; */

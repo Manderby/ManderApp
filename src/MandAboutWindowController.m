@@ -1,25 +1,29 @@
 
-#import "ManderimAboutWindowController.h"
-#import "ManderimApplicationStringConstants.h"
+#import "MandAboutWindowController.h"
 
 
-@implementation ManderimAboutWindowController
+#define MAND_ABOUT_KEY       @"MandAbout"
+#define MAND_DONE_KEY        @"MandDone"
+#define MAND_DESCRIPTION_KEY @"MandDescription"
+
+
+@implementation MandAboutWindowController
 
 
 
 - (void)awakeFromNib{
 
   NSURL* url;
-  NSString* applicationname = [(ManderimApplication*)NSApp applicationName];
+  NSString* applicationname = [(MandApplication*)NSApp applicationName];
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
   // Set the window title
-  NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_ABOUT_KEY value:nil table:@"ManderimApplication"];
+  NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MAND_ABOUT_KEY value:nil table:@"MandApplication"];
   [[self window] setTitle:[NSString stringWithFormat:aboutstring, applicationname]];
 
   // Set the button text
-  NSString* donestring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_DONE_KEY value:nil table:@"ManderimApplication"];
+  NSString* donestring = [[NSBundle mainBundle] localizedStringForKey:MAND_DONE_KEY value:nil table:@"MandApplication"];
   [donebutton setTitle:donestring];
 
   // Set the application icon
@@ -35,7 +39,7 @@
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
   [version setStringValue:[NSString stringWithFormat:@"Version %@ (Build %@)", versionstring, buildstring]];
 
-  NSString* descriptionstring = [[NSBundle mainBundle] localizedStringForKey:MANDERIM_APPLICATION_DESCRIPTION_KEY value:nil table:nil];
+  NSString* descriptionstring = [[NSBundle mainBundle] localizedStringForKey:MAND_DESCRIPTION_KEY value:nil table:nil];
   [aboutdescription setStringValue:descriptionstring];
 
   // Set the Link to Manderim

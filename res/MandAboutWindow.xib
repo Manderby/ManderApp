@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ManderimApplication">
+        <customObject id="-2" userLabel="File's Owner" customClass="MandApplication">
             <connections>
                 <outlet property="aboutwindowcontroller" destination="36" id="4Yl-dP-zJe"/>
             </connections>
@@ -90,17 +91,14 @@ DQ
                             <action selector="performClose:" target="1" id="70"/>
                         </connections>
                     </button>
-                    <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="74">
+                    <box verticalHuggingPriority="750" boxType="separator" id="74">
                         <rect key="frame" x="20" y="66" width="439" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                 </subviews>
             </view>
         </window>
-        <customObject id="36" customClass="ManderimAboutWindowController">
+        <customObject id="36" customClass="MandAboutWindowController">
             <connections>
                 <outlet property="aboutdescription" destination="48" id="95"/>
                 <outlet property="applicationnamefield" destination="46" id="uEx-25-88l"/>

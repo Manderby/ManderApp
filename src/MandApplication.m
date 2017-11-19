@@ -1,11 +1,11 @@
 // Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
 
-#import "ManderimApplication.h"
-#import "ManderimAboutWindowController.h"
-#import "ManderimHelpWindowController.h"
+#import "MandApplication.h"
+#import "MandAboutWindowController.h"
+#import "MandHelpWindowController.h"
 
 
-@implementation ManderimApplication
+@implementation MandApplication
 
 
 - (id)init{
@@ -26,6 +26,7 @@
   [aboutmenuitem setAction:@selector(showAbout:)];
   
   helpwindowcontroller = nil;
+
 }
 
 
@@ -43,7 +44,7 @@
   NA_UNUSED(sender);
   
   if(!aboutwindowcontroller){
-    BOOL nibloaded = [ManderimApplication loadNibNamed:@"ManderimAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
+    BOOL nibloaded = [MandApplication loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
     if(!nibloaded){return;}
   }
   
@@ -54,7 +55,7 @@
 
 - (void)setHelpDocument:(NSURL*)url{
   if(!helpwindowcontroller){
-    helpwindowcontroller = [[ManderimHelpWindowController alloc] init];
+    helpwindowcontroller = [[MandHelpWindowController alloc] init];
   }
   [helpwindowcontroller setBaseURL:url];
 
@@ -181,6 +182,12 @@
     [userdefaults setInteger:value forKey:key];
   }
 }
++ (void)initUserDefaultEnumValue:(NAInt)value forKey:(NSString*)key{
+  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+  if([userdefaults integerForKey:key] == 0){
+    [userdefaults setInteger:value + 1 forKey:key];
+  }
+}
 + (void)initUserDefaultDoubleValue:(double)value forKey:(NSString*)key{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   if([userdefaults doubleForKey:key] == 0.){
@@ -198,6 +205,10 @@
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   [userdefaults setInteger:value forKey:key];
 }
++ (void)setUserDefaultEnumValue:(NAInt)value forKey:(NSString*)key{
+  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+  [userdefaults setInteger:value + 1 forKey:key];
+}
 + (void)setUserDefaultDoubleValue:(double)value forKey:(NSString*)key{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   [userdefaults setDouble:value forKey:key];
@@ -212,6 +223,10 @@
 + (NAInt)getUserDefaultIntValueForKey:(NSString*)key{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   return (NAInt)[userdefaults integerForKey:key];
+}
++ (NAInt)getUserDefaultEnumValueForKey:(NSString*)key{
+  NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
+  return (NAInt)[userdefaults integerForKey:key] - 1;
 }
 + (double)getUserDefaultDoubleValueForKey:(NSString*)key{
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
