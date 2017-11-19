@@ -116,30 +116,50 @@
     NSString* cursorsuffix = @"png";
   #endif
   NSURL* url = [[NSBundle mainBundle] URLForResource:basename withExtension:cursorsuffix];
-  NSImage* cursorimage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
-  return [[NSCursor alloc] initWithImage:cursorimage hotSpot:NSMakePoint(x, y)];
+  NSImage* cursorimage = [[NSImage alloc] initWithContentsOfURL:url];
+  NSCursor* cursor = [[NSCursor alloc] initWithImage:cursorimage hotSpot:NSMakePoint(x, y)];
+  [cursorimage release];
+  return cursor;
 }
 
 
 
 + (CGFloat) getUIScaleFactorForWindow:(NSWindow*)window{
-  #ifdef NSAppKitVersionNumber10_7
-    if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_7){
-      #ifdef __MAC_10_7
-        return [window backingScaleFactor];
-      #else
-        return 1;
-      #endif
-    }else{
-      #ifndef __MAC_10_7
-        return [window userSpaceScaleFactor];
-      #else
-        return 1;
-      #endif
+  if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_7){
+    #ifdef __MAC_10_7
+      return [window backingScaleFactor];
+    #else
+      return 1;
+    #endif
+  }else{
+    #ifndef __MAC_10_7
+      return [window userSpaceScaleFactor];
+    #else
+      return 1;
+    #endif
+  }
+}
+
+
+
++ (CGFloat) getScrollingDeltaX:(NSEvent*)event{
+  if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_7){
+    if([event hasPreciseScrollingDeltas]){
+      return [event scrollingDeltaX];
     }
-  #else
-    return [window userSpaceScaleFactor];
-  #endif
+  }
+  return [event deltaX] * MAND_LINE_HEIGHT_POINTS;
+}
+
+
+
++ (CGFloat) getScrollingDeltaY:(NSEvent*)event{
+  if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_7){
+    if([event hasPreciseScrollingDeltas]){
+      return [event scrollingDeltaY];
+    }
+  }
+  return [event deltaY] * MAND_LINE_HEIGHT_POINTS;
 }
 
 

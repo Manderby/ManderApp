@@ -7,7 +7,8 @@
 #include "NASystem.h"
 
 
-
+#define MAND_LINE_HEIGHT_POINTS 12
+#define MAND_SCROLL_SPEED 0.15
 
 @class MandAboutWindowController;
 @class MandHelpWindowController;
@@ -29,6 +30,8 @@
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;
 + (CGFloat)getUIScaleFactorForWindow:(NSWindow*)window;
++ (CGFloat)getScrollingDeltaX:(NSEvent*)event;
++ (CGFloat)getScrollingDeltaY:(NSEvent*)event;
 + (CGFloat)getWindowBottomBorder;
 + (void)openDocumentWithURL:(NSURL*)url;
 

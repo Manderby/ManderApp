@@ -28,8 +28,9 @@
 
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
-  NSImage* iconimage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
+  NSImage* iconimage = [[NSImage alloc] initWithContentsOfURL:url];
   [iconview setImage:iconimage];
+  [iconimage release];
 
   // Set the application name
   [applicationnamefield setStringValue:applicationname];
