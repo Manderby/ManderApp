@@ -6,6 +6,8 @@ MandPreferences       = "%@ Einstellungen";
 MandDone              = "Fertig";
 MandHelp              = "%@ Hilfe";
 
+/* Strings for Menus */
+/* The %@ denotes the application name */
 MandSubmenuAbout       = "Über %@";
 MandSubmenuPreferences = "Einstellungen ...";
 MandSubmenuServices    = "Dienste";

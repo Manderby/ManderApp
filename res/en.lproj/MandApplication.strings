@@ -2,10 +2,12 @@
 /* Strings for MandAboutWindowController.m */
 /* The %@ denotes the application name */
 MandAbout              = "About %@";
-MandHelp               = "%@ Help";
 MandPreferences        = "%@ Preferences";
 MandDone               = "Done";
+MandHelp               = "%@ Help";
 
+/* Strings for Menus */
+/* The %@ denotes the application name */
 MandSubmenuAbout       = "About %@";
 MandSubmenuPreferences = "Preferences ...";
 MandSubmenuServices    = "Services";
