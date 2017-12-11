@@ -164,6 +164,18 @@
 
 
 
++ (ModifierKeyState)makeModifierKeyState:(NSEvent*)event{
+  ModifierKeyState mks;
+  mks.shift   = ([event modifierFlags] & NSShiftKeyMask)    ?NA_TRUE:NA_FALSE;
+  mks.alt     = ([event modifierFlags] & NSAlternateKeyMask)?NA_TRUE:NA_FALSE;
+  mks.command = ([event modifierFlags] & NSCommandKeyMask)  ?NA_TRUE:NA_FALSE;
+  mks.control = ([event modifierFlags] & NSControlKeyMask)  ?NA_TRUE:NA_FALSE;
+  mks.fn      = ([event modifierFlags] & NSFunctionKeyMask) ?NA_TRUE:NA_FALSE;
+  return mks;
+}
+
+
+
 + (CGFloat)getWindowBottomBorder{
   CGFloat border = 22.f;    // This corresponds to the default bottom border
                             // thickness in recent OSX versions. There seems

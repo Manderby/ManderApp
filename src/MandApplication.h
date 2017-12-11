@@ -14,6 +14,18 @@
 @class MandHelpWindowController;
 
 
+
+typedef struct ModifierKeyState ModifierKeyState;
+struct ModifierKeyState{
+  NABool shift;
+  NABool alt;
+  NABool command;
+  NABool control;
+  NABool fn;
+};
+
+
+
 @interface MandApplication : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
   IBOutlet NSMenuItem* aboutMenuItem;
@@ -32,6 +44,7 @@
 + (CGFloat)getUIScaleFactorForWindow:(NSWindow*)window;
 + (CGFloat)getScrollingDeltaX:(NSEvent*)event;
 + (CGFloat)getScrollingDeltaY:(NSEvent*)event;
++ (ModifierKeyState)makeModifierKeyState:(NSEvent*)event;
 + (CGFloat)getWindowBottomBorder;
 + (void)openDocumentWithURL:(NSURL*)url;
 
