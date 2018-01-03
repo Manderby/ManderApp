@@ -2,6 +2,7 @@
 
 #include "MandConfiguration.h"
 #include "MandMenuHelper.h"
+#include "MandEnvironment.h"
 
 #import <Cocoa/Cocoa.h>
 #include "NASystem.h"
@@ -14,21 +15,8 @@
 @class MandHelpWindowController;
 
 
-
-typedef struct ModifierKeyState ModifierKeyState;
-struct ModifierKeyState{
-  NABool shift;
-  NABool alt;
-  NABool command;
-  NABool control;
-  NABool fn;
-};
-
-
-
 @interface MandApplication : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
-  IBOutlet NSMenuItem* aboutMenuItem;
   IBOutlet NSMenuItem* helpMenuItem;
   IBOutlet MandAboutWindowController* aboutwindowcontroller;
   MandHelpWindowController* helpwindowcontroller;

@@ -5,6 +5,16 @@
 
 
 
+void mandInitModifierKeyState(ModifierKeyState* mks){
+  mks->alt = NA_FALSE;
+  mks->command = NA_FALSE;
+  mks->control = NA_FALSE;
+  mks->fn = NA_FALSE;
+  mks->shift = NA_FALSE;
+}
+
+
+
 void mandInitUserDefaultBool(NABool value, const char* key){
   NSUserDefaults* userdefaults = [NSUserDefaults standardUserDefaults];
   NSString* nskey = [NSString stringWithUTF8String:key];

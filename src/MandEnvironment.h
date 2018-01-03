@@ -4,6 +4,17 @@
 
 #include "NASystem.h"
 
+typedef struct ModifierKeyState ModifierKeyState;
+struct ModifierKeyState{
+  NABool shift;
+  NABool alt;
+  NABool command;
+  NABool control;
+  NABool fn;
+};
+
+void mandInitModifierKeyState(ModifierKeyState* mks);
+
 void mandInitUserDefaultBool(NABool value, const char* key);
 void mandInitUserDefaultInt(NAInt value, const char* key);
 void mandInitUserDefaultEnum(NAInt value, const char* key);
