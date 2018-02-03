@@ -187,16 +187,17 @@
 
 
 + (void)openDocumentWithURL:(NSURL*)url{
-  if([[NSDocumentController sharedDocumentController] respondsToSelector:@selector(openDocumentWithContentsOfURL:display:completionHandler:)]){
+  NSDocumentController* documentcontroller = [NSDocumentController sharedDocumentController];
+  if([documentcontroller respondsToSelector:@selector(openDocumentWithContentsOfURL:display:completionHandler:)]){
     #if defined __MAC_10_7
-      [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error){
+      [documentcontroller openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error){
         NA_UNUSED(document);
         NA_UNUSED(documentWasAlreadyOpen);
         NA_UNUSED(error);
       }];
     #endif
   }else{
-    [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:url display:YES error:nil];
+    [documentcontroller openDocumentWithContentsOfURL:url display:YES error:nil];
   }
 }
 

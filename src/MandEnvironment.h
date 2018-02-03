@@ -32,5 +32,8 @@ double mandGetUserDefaultDouble(const char* key);
 
 NABool mandToggleUserDefaultBool(const char* key);
 
+void mandHideMouseCursorUntilMouseMoves(NABool hide);
+void mandSwitchApplicationToGraphiteAppearance(void);
+
 #endif // MAND_ENVIRONMENT_INCLUDED
 

@@ -99,3 +99,15 @@ NABool mandToggleUserDefaultBool(const char* key){
   [userdefaults setInteger:(value?-1:1) forKey:nskey];
   return !value;
 }
+
+
+
+void mandHideMouseCursorUntilMouseMoves(NABool hide){
+  [NSCursor setHiddenUntilMouseMoves:hide ? YES : NO];
+}
+
+
+
+void mandSwitchApplicationToGraphiteAppearance(void){
+  [[NSUserDefaults standardUserDefaults] setVolatileDomain:@{@"AppleAquaColorVariant": @6} forName:NSArgumentDomain];
+}
