@@ -11,6 +11,8 @@
 #define MAND_LINE_HEIGHT_POINTS 12
 #define MAND_SCROLL_SPEED 0.15
 
+#define MAND_TRANSLATION_COLLECTION "MandApplication"
+
 @class MandAboutWindowController;
 @class MandHelpWindowController;
 
@@ -25,7 +27,7 @@
 
 - (void)setHelpDocument:(NSURL*)url;
 
-- (NSString*)applicationName;
+- (NAString*)applicationName;
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;

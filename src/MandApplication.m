@@ -74,12 +74,13 @@
 
 
 
-- (NSString*)applicationName{
+- (NAString*)applicationName{
   NSString* applicationname = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
   if(!applicationname){
     applicationname = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
   }
-  return applicationname;
+  NAString* retstring = naNewStringWithFormat("%s", [applicationname UTF8String]);
+  return retstring;
 }
 
 

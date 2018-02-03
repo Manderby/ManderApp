@@ -1,20 +1,21 @@
 
 /* Strings for MandAboutWindowController.m */
 /* The %@ denotes the application name */
-MandAbout             = "Über %@";
-MandPreferences       = "%@ Einstellungen";
-MandDone              = "Fertig";
-MandHelp              = "%@ Hilfe";
+MandAbout              = "Über %s";
+MandPreferences        = "%s Einstellungen";
+MandDone               = "Fertig";
+MandHelp               = "%s Hilfe";
+MandVersionBuild       = "Version %@ (Build %@)";
 
 /* Strings for Menus */
 /* The %@ denotes the application name */
-MandSubmenuAbout       = "Über %@";
+MandSubmenuAbout       = "Über %s";
 MandSubmenuPreferences = "Einstellungen ...";
 MandSubmenuServices    = "Dienste";
-MandSubmenuHideApp     = "%@ verstecken";
+MandSubmenuHideApp     = "%s verstecken";
 MandSubmenuHideOthers  = "Andere verstecken";
 MandSubmenuShowAllApps = "Alle anzeigen";
-MandSubmenuQuitApp     = "%@ beenden";
+MandSubmenuQuitApp     = "%s beenden";
 
 MandMenuFile           = "Datei";
 MandSubmenuNew         = "Neu";

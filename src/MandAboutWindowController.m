@@ -1,30 +1,33 @@
 
 #import "MandAboutWindowController.h"
+#include "MandTranslation.h"
+#include "NAString.h"
 
 
-#define MAND_ABOUT_KEY       @"MandAbout"
-#define MAND_DONE_KEY        @"MandDone"
-#define MAND_DESCRIPTION_KEY @"MandDescription"
+#define MAND_ABOUT_KEY         "MandAbout"
+#define MAND_DONE_KEY          "MandDone"
+#define MAND_DESCRIPTION_KEY   "MandDescription"
+#define MAND_VERSION_BUILD_KEY "MandVersionBuild"
 
 
 @implementation MandAboutWindowController
 
-
-
 - (void)awakeFromNib{
 
   NSURL* url;
-  NSString* applicationname = [(MandApplication*)NSApp applicationName];
+  NAString* applicationname = [(MandApplication*)NSApp applicationName];
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
   // Set the window title
-  NSString* aboutstring = [[NSBundle mainBundle] localizedStringForKey:MAND_ABOUT_KEY value:nil table:@"MandApplication"];
-  [[self window] setTitle:[NSString stringWithFormat:aboutstring, applicationname]];
+  NAString* aboutstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_ABOUT_KEY);
+  [[self window] setTitle:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(aboutstring)], naGetStringUTF8Pointer(applicationname)]];
+  naDelete(aboutstring);
 
   // Set the button text
-  NSString* donestring = [[NSBundle mainBundle] localizedStringForKey:MAND_DONE_KEY value:nil table:@"MandApplication"];
-  [donebutton setTitle:donestring];
+  NAString* donestring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_DONE_KEY);
+  [donebutton setTitle:[NSString stringWithUTF8String:naGetStringUTF8Pointer(donestring)]];
+  naDelete(donestring);
 
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
@@ -33,15 +36,18 @@
   [iconimage release];
 
   // Set the application name
-  [applicationnamefield setStringValue:applicationname];
+  [applicationnamefield setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(applicationname)]];
 
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-  [version setStringValue:[NSString stringWithFormat:@"Version %@ (Build %@)", versionstring, buildstring]];
+  NAString* versionbuildstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
+  [version setStringValue:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(versionbuildstring)], versionstring, buildstring]];
+  naDelete(versionbuildstring);
 
-  NSString* descriptionstring = [[NSBundle mainBundle] localizedStringForKey:MAND_DESCRIPTION_KEY value:nil table:nil];
-  [aboutdescription setStringValue:descriptionstring];
+  NAString* descriptionstring = mandGetBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
+  [aboutdescription setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(descriptionstring)]];
+  naDelete(descriptionstring);
 
   // Set the Link to Manderim
   
@@ -62,6 +68,7 @@
   [websitelink setAttributedStringValue: attrString];
 
   [attrString release];
+  naDelete(applicationname);
 }
 
 

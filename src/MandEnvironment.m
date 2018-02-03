@@ -2,6 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 #include "MandEnvironment.h"
+#include "NAString.h"
 
 
 

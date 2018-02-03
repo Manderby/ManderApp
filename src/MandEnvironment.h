@@ -3,6 +3,7 @@
 #define MAND_ENVIRONMENT_INCLUDED
 
 #include "NASystem.h"
+#include "NAString.h"
 
 typedef struct ModifierKeyState ModifierKeyState;
 struct ModifierKeyState{
