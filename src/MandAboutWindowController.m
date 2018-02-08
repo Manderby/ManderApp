@@ -9,6 +9,9 @@
 #define MAND_DESCRIPTION_KEY   "MandDescription"
 #define MAND_VERSION_BUILD_KEY "MandVersionBuild"
 
+#define MAND_BUNDLE_ICON_FILE_KEY @"CFBundleIconFile"
+#define MAND_BUNDLE_VERSION_SHORT_KEY @"CFBundleShortVersionString"
+#define MAND_BUNDLE_VERSION_KEY @"CFBundleVersion"
 
 @implementation MandAboutWindowController
 
@@ -16,7 +19,7 @@
 
   NSURL* url;
   NAString* applicationname = [(MandApplication*)NSApp applicationName];
-  NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"];
+  NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_ICON_FILE_KEY];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
   // Set the window title
@@ -39,8 +42,8 @@
   [applicationnamefield setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(applicationname)]];
 
   // Set the version
-  NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-  NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+  NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_SHORT_KEY];
+  NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_KEY];
   NAString* versionbuildstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
   [version setStringValue:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(versionbuildstring)], versionstring, buildstring]];
   naDelete(versionbuildstring);

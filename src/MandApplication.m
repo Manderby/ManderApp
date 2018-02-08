@@ -5,6 +5,13 @@
 #import "MandHelpWindowController.h"
 
 
+
+NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder){
+  return [[NSBundle mainBundle] URLForResource:[NSString stringWithUTF8String:basename] withExtension:[NSString stringWithUTF8String:suffix] subdirectory:[NSString stringWithUTF8String:folder]];
+}
+
+
+
 @implementation MandApplication
 
 
@@ -201,9 +208,6 @@
     [documentcontroller openDocumentWithContentsOfURL:url display:YES error:nil];
   }
 }
-
-
-
 
 
 @end

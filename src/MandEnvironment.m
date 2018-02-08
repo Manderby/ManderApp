@@ -112,3 +112,5 @@ void mandHideMouseCursorUntilMouseMoves(NABool hide){
 void mandSwitchApplicationToGraphiteAppearance(void){
   [[NSUserDefaults standardUserDefaults] setVolatileDomain:@{@"AppleAquaColorVariant": @6} forName:NSArgumentDomain];
 }
+
+

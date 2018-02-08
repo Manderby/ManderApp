@@ -17,6 +17,11 @@
 @class MandHelpWindowController;
 
 
+
+NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder);
+
+
+
 @interface MandApplication : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
   IBOutlet NSMenuItem* helpMenuItem;
