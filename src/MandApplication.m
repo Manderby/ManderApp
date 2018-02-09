@@ -3,11 +3,21 @@
 #import "MandApplication.h"
 #import "MandAboutWindowController.h"
 #import "MandHelpWindowController.h"
+#include "MandTranslation.h"
 
 
 
 NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder){
   return [[NSBundle mainBundle] URLForResource:[NSString stringWithUTF8String:basename] withExtension:[NSString stringWithUTF8String:suffix] subdirectory:[NSString stringWithUTF8String:folder]];
+}
+
+
+
+NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
+  NAString* transstring = mandGetBundleString(collection, key);
+  NSString* retstr = [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)];
+  naDelete(transstring);
+  return retstr;
 }
 
 

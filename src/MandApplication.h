@@ -21,6 +21,8 @@
 NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder);
 
 
+NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key);
+
 
 @interface MandApplication : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
