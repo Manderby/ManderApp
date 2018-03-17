@@ -1,4 +1,3 @@
-// Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
 
 #include "MandConfiguration.h"
 #include "MandMenuHelper.h"

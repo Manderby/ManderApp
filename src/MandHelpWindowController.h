@@ -1,4 +1,4 @@
-// Entwickelt von Tobias Stamm, Manderim GmbH, http://manderim.ch
+
 
 
 #import "MandApplication.h"

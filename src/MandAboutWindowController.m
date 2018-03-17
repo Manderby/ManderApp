@@ -52,16 +52,16 @@
   [aboutdescription setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(descriptionstring)]];
   naDelete(descriptionstring);
 
-  // Set the Link to Manderim
+  // Set the Link to the website
   
   // both are needed, otherwise hyperlink won't accept mousedown
   [websitelink setAllowsEditingTextAttributes: YES];
   [websitelink setSelectable: YES];
 
-  NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString: @"http://manderim.ch"];
+  NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString: @"http://manderc.com"];
   NSRange range = NSMakeRange(0, [attrString length]);
 
-  url = [NSURL URLWithString:@"http://manderim.ch"];
+  url = [NSURL URLWithString:@"http://manderc.com"];
   [attrString beginEditing];
   [attrString addAttribute:NSLinkAttributeName value:[url absoluteString] range:range];
   [attrString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:range];
