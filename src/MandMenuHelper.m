@@ -41,17 +41,22 @@
 
 
 
-void trySetMenuTranslation(NSMenuItem* item, const NAUTF8Char* key){
+void trySetMenuItemTranslation(NSMenuItem* item, const NAUTF8Char* key){
   if(item){
     NAString* transstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, key);
-    [item setTitle: [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)]];
+    if([item hasSubmenu]){
+      [[item submenu] setTitle: [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)]];
+    }else{
+      [item setTitle: [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)]];
+    }
     naDelete(transstring);
   }
 }
 
 
 
-void trySetMenuTranslationWithApplication(NSMenuItem* item, NAUTF8Char* key){
+
+void trySetMenuItemTranslationWithApplication(NSMenuItem* item, NAUTF8Char* key){
   if(item){
     NAString* applicationname = [(MandApplication*)NSApp applicationName];
     NAString* transstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, key);
@@ -67,52 +72,52 @@ void trySetMenuTranslationWithApplication(NSMenuItem* item, NAUTF8Char* key){
 @implementation MandMenuHelper
 
 - (void)setupAppMenu{
-  trySetMenuTranslationWithApplication(appAboutAppItem, MAND_SUBMENU_ABOUT);
-  trySetMenuTranslation(appPreferencesItem, MAND_SUBMENU_PREFERENCES);
-  trySetMenuTranslation(appServicesItem, MAND_SUBMENU_SERVICES);
-  trySetMenuTranslationWithApplication(appHideAppItem, MAND_SUBMENU_HIDE_APP);
-  trySetMenuTranslation(appHideOthersItem, MAND_SUBMENU_HIDE_OTHERS);
-  trySetMenuTranslation(appShowAllItem, MAND_SUBMENU_SHOW_ALL);
-  trySetMenuTranslationWithApplication(appQuitAppItem, MAND_SUBMENU_QUIT_APP);
+  trySetMenuItemTranslationWithApplication(appAboutAppItem, MAND_SUBMENU_ABOUT);
+  trySetMenuItemTranslation(appPreferencesItem, MAND_SUBMENU_PREFERENCES);
+  trySetMenuItemTranslation(appServicesItem, MAND_SUBMENU_SERVICES);
+  trySetMenuItemTranslationWithApplication(appHideAppItem, MAND_SUBMENU_HIDE_APP);
+  trySetMenuItemTranslation(appHideOthersItem, MAND_SUBMENU_HIDE_OTHERS);
+  trySetMenuItemTranslation(appShowAllItem, MAND_SUBMENU_SHOW_ALL);
+  trySetMenuItemTranslationWithApplication(appQuitAppItem, MAND_SUBMENU_QUIT_APP);
 }
 
 
 
 - (void)setupFileMenu{
-  trySetMenuTranslation(fileMenuItem, MAND_MENU_FILE);
-  trySetMenuTranslation(fileNewItem, MAND_SUBMENU_NEW);
-  trySetMenuTranslation(fileOpenItem, MAND_SUBMENU_OPEN);
-  trySetMenuTranslation(fileRecentDocsItem, MAND_SUBMENU_RECENT_DOCS);
-  trySetMenuTranslation(fileCloseItem, MAND_SUBMENU_CLOSE);
-  trySetMenuTranslation(fileSaveItem, MAND_SUBMENU_SAVE);
-  trySetMenuTranslation(fileSaveAsItem, MAND_SUBMENU_SAVE_AS);
-  trySetMenuTranslation(fileExportItem, MAND_SUBMENU_EXPORT);
-  trySetMenuTranslation(fileRevertItem, MAND_SUBMENU_REVERT);
-  trySetMenuTranslation(filePageSetupItem, MAND_SUBMENU_PAGE_SETUP);
-  trySetMenuTranslation(filePrintItem, MAND_SUBMENU_PRINT);
+  trySetMenuItemTranslation(fileMenuItem, MAND_MENU_FILE);
+  trySetMenuItemTranslation(fileNewItem, MAND_SUBMENU_NEW);
+  trySetMenuItemTranslation(fileOpenItem, MAND_SUBMENU_OPEN);
+  trySetMenuItemTranslation(fileRecentDocsItem, MAND_SUBMENU_RECENT_DOCS);
+  trySetMenuItemTranslation(fileCloseItem, MAND_SUBMENU_CLOSE);
+  trySetMenuItemTranslation(fileSaveItem, MAND_SUBMENU_SAVE);
+  trySetMenuItemTranslation(fileSaveAsItem, MAND_SUBMENU_SAVE_AS);
+  trySetMenuItemTranslation(fileExportItem, MAND_SUBMENU_EXPORT);
+  trySetMenuItemTranslation(fileRevertItem, MAND_SUBMENU_REVERT);
+  trySetMenuItemTranslation(filePageSetupItem, MAND_SUBMENU_PAGE_SETUP);
+  trySetMenuItemTranslation(filePrintItem, MAND_SUBMENU_PRINT);
 }
 
 
 
 - (void)setupEditMenu{
-  trySetMenuTranslation(editMenuItem, MAND_MENU_EDIT);
-  trySetMenuTranslation(editUndoItem, MAND_SUBMENU_UNDO);
-  trySetMenuTranslation(editRedoItem, MAND_SUBMENU_REDO);
-  trySetMenuTranslation(editCutItem, MAND_SUBMENU_CUT);
-  trySetMenuTranslation(editCopyItem, MAND_SUBMENU_COPY);
-  trySetMenuTranslation(editPasteItem, MAND_SUBMENU_PASTE);
-  trySetMenuTranslation(editClearItem, MAND_SUBMENU_CLEAR);
-  trySetMenuTranslation(editSelectAllItem, MAND_SUBMENU_SELECT_ALL);
-  trySetMenuTranslation(editDeselectAllItem, MAND_SUBMENU_DESELECT_ALL);
+  trySetMenuItemTranslation(editMenuItem, MAND_MENU_EDIT);
+  trySetMenuItemTranslation(editUndoItem, MAND_SUBMENU_UNDO);
+  trySetMenuItemTranslation(editRedoItem, MAND_SUBMENU_REDO);
+  trySetMenuItemTranslation(editCutItem, MAND_SUBMENU_CUT);
+  trySetMenuItemTranslation(editCopyItem, MAND_SUBMENU_COPY);
+  trySetMenuItemTranslation(editPasteItem, MAND_SUBMENU_PASTE);
+  trySetMenuItemTranslation(editClearItem, MAND_SUBMENU_CLEAR);
+  trySetMenuItemTranslation(editSelectAllItem, MAND_SUBMENU_SELECT_ALL);
+  trySetMenuItemTranslation(editDeselectAllItem, MAND_SUBMENU_DESELECT_ALL);
 }
 
 
 
 - (void)setupWindowMenu{
-  trySetMenuTranslation(windowMenuItem, MAND_MENU_WINDOW);
-  trySetMenuTranslation(windowMinimizeItem, MAND_SUBMENU_MINIMIZE);
-  trySetMenuTranslation(windowMaximizeItem, MAND_SUBMENU_MAXIMIZE);
-  trySetMenuTranslation(windowBringAllToFrontItem, MAND_SUBMENU_BRING_ALL_TO_FRONT);
+  trySetMenuItemTranslation(windowMenuItem, MAND_MENU_WINDOW);
+  trySetMenuItemTranslation(windowMinimizeItem, MAND_SUBMENU_MINIMIZE);
+  trySetMenuItemTranslation(windowMaximizeItem, MAND_SUBMENU_MAXIMIZE);
+  trySetMenuItemTranslation(windowBringAllToFrontItem, MAND_SUBMENU_BRING_ALL_TO_FRONT);
 }
 
 @end
