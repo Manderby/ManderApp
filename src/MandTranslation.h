@@ -11,7 +11,7 @@
 //MandTranslation* mandAllocTranslation(const NAUTF8Char* tablename, const NAUTF8Char** keys, NAInt keycount);
 //void mandDeallocTranslation(MandTranslation* translation);
 
-NAString* mandGetBundleString(NAUTF8Char* collection, const NAUTF8Char* key);
+NAString* mandNewBundleString(NAUTF8Char* collection, const NAUTF8Char* key);
 
 
 #endif // MAND_TRANSLATION_INCLUDED

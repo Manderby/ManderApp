@@ -13,7 +13,7 @@ NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NA
 
 
 NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
-  NAString* transstring = mandGetBundleString(collection, key);
+  NAString* transstring = mandNewBundleString(collection, key);
   NSString* retstr = [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)];
   naDelete(transstring);
   return retstr;
@@ -90,7 +90,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
 
 
 
-- (NAString*)applicationName{
+- (NAString*)newApplicationNameString{
   NSString* applicationname = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
   if(!applicationname){
     applicationname = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];

@@ -4,7 +4,7 @@
 #include "MandEnvironment.h"
 
 #import <Cocoa/Cocoa.h>
-#include "NASystem.h"
+#include "NABase.h"
 
 
 #define MAND_LINE_HEIGHT_POINTS 12
@@ -33,7 +33,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key);
 
 - (void)setHelpDocument:(NSURL*)url;
 
-- (NAString*)applicationName;
+- (NAString*)newApplicationNameString;
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;

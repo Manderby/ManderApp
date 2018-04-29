@@ -43,7 +43,7 @@
 
 void trySetMenuItemTranslation(NSMenuItem* item, const NAUTF8Char* key){
   if(item){
-    NAString* transstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, key);
+    NAString* transstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, key);
     if([item hasSubmenu]){
       [[item submenu] setTitle: [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)]];
     }else{
@@ -58,8 +58,8 @@ void trySetMenuItemTranslation(NSMenuItem* item, const NAUTF8Char* key){
 
 void trySetMenuItemTranslationWithApplication(NSMenuItem* item, NAUTF8Char* key){
   if(item){
-    NAString* applicationname = [(MandApplication*)NSApp applicationName];
-    NAString* transstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, key);
+    NAString* applicationname = [(MandApplication*)NSApp newApplicationNameString];
+    NAString* transstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, key);
     NSString* formatstring = [NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)], naGetStringUTF8Pointer(applicationname)];
     [item setTitle: formatstring];
     naDelete(transstring);

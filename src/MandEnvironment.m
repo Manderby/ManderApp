@@ -53,6 +53,14 @@ void mandInitUserDefaultDouble(double value, const char* key){
     [userdefaults setDouble:value forKey:nskey];
   }
 }
+void mandInitUserDefaultString(NAString* value, const char* key){
+  MandUserDefaults* userdefaults = mandGetSystemUserDefaults();
+  NSString* nskey = [NSString stringWithUTF8String:key];
+  if([userdefaults objectForKey:nskey] == nil){
+    NSString* valueobj = [NSString stringWithUTF8String:naGetStringUTF8Pointer(value)];
+    [userdefaults setObject:valueobj forKey:nskey];
+  }
+}
 
 
 
@@ -76,6 +84,12 @@ void mandSetUserDefaultDouble(double value, const char* key){
   NSString* nskey = [NSString stringWithUTF8String:key];
   [userdefaults setDouble:value forKey:nskey];
 }
+void mandSetUserDefaultString(NAString* value, const char* key){
+  MandUserDefaults* userdefaults = mandGetSystemUserDefaults();
+  NSString* nskey = [NSString stringWithUTF8String:key];
+  NSString* valueobj = [NSString stringWithUTF8String:naGetStringUTF8Pointer(value)];
+  [userdefaults setObject:valueobj forKey:nskey];
+}
 
 
 
@@ -98,6 +112,12 @@ double mandGetUserDefaultDouble(const char* key){
   MandUserDefaults* userdefaults = mandGetSystemUserDefaults();
   NSString* nskey = [NSString stringWithUTF8String:key];
   return [userdefaults doubleForKey:nskey];
+}
+NAString* mandNewUserDefaultString(const char* key){
+  MandUserDefaults* userdefaults = mandGetSystemUserDefaults();
+  NSString* nskey = [NSString stringWithUTF8String:key];
+  NSString* valueobj = [userdefaults stringForKey:nskey];
+  return naNewStringWithFormat("%s", [valueobj UTF8String]);
 }
 
 

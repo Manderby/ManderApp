@@ -18,17 +18,17 @@
 - (void)awakeFromNib{
 
   NSURL* url;
-  NAString* applicationname = [(MandApplication*)NSApp applicationName];
+  NAString* applicationname = [(MandApplication*)NSApp newApplicationNameString];
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_ICON_FILE_KEY];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
   // Set the window title
-  NAString* aboutstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_ABOUT_KEY);
+  NAString* aboutstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_ABOUT_KEY);
   [[self window] setTitle:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(aboutstring)], naGetStringUTF8Pointer(applicationname)]];
   naDelete(aboutstring);
 
   // Set the button text
-  NAString* donestring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_DONE_KEY);
+  NAString* donestring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_DONE_KEY);
   [donebutton setTitle:[NSString stringWithUTF8String:naGetStringUTF8Pointer(donestring)]];
   naDelete(donestring);
 
@@ -44,11 +44,11 @@
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_SHORT_KEY];
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_KEY];
-  NAString* versionbuildstring = mandGetBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
+  NAString* versionbuildstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
   [version setStringValue:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(versionbuildstring)], versionstring, buildstring]];
   naDelete(versionbuildstring);
 
-  NAString* descriptionstring = mandGetBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
+  NAString* descriptionstring = mandNewBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
   [aboutdescription setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(descriptionstring)]];
   naDelete(descriptionstring);
 

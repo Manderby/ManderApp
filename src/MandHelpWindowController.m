@@ -20,8 +20,9 @@
 
     // Set the window title
     NSString* helpstring = [[NSBundle mainBundle] localizedStringForKey:MAND_HELP_KEY value:nil table:@"MandApplication"];
-    [[self window] setTitle:[NSString stringWithFormat:helpstring, [(MandApplication*)NSApp applicationName]]];
-
+    NAString* applicationname = [(MandApplication*)NSApp newApplicationNameString];
+    [[self window] setTitle:[NSString stringWithFormat:helpstring, applicationname]];
+    naDelete(applicationname);
 
 
     webview = [[WebView alloc] initWithFrame:[[[self window] contentView] frame] frameName:nil groupName:nil];

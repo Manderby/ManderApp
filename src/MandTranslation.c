@@ -34,7 +34,7 @@
 
 
 
-NAString* mandGetBundleString(NAUTF8Char* collection, const NAUTF8Char* key){
+NAString* mandNewBundleString(NAUTF8Char* collection, const NAUTF8Char* key){
   CFBundleRef bundle = CFBundleGetMainBundle();
   CFStringRef keystr = CFStringCreateWithCString(NA_NULL, key, kCFStringEncodingUTF8);
   CFStringRef retstr;
