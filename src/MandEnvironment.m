@@ -20,8 +20,9 @@ typedef NSUserDefaults MandUserDefaults;
 
 
 MandUserDefaults* mandGetSystemUserDefaults(){
-//  return [[NSUserDefaults alloc] initWithSuiteName:@"group.ch.manderim.hueslipapier"];
+//  return [[NSUserDefaults alloc] initWithSuiteName:@"YH3QFD54JB.group.ch.manderim.hueslipapier"];
   return [NSUserDefaults standardUserDefaults];
+//  return NA_NULL;
 }
 
 
