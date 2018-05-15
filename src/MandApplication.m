@@ -59,12 +59,12 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
 - (void)showAbout:(id)sender{
   NA_UNUSED(sender);
   
+  BOOL nibloaded = NA_FALSE;
   if(!aboutwindowcontroller){
-    BOOL nibloaded = [MandApplication loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
-    if(!nibloaded){return;}
+    nibloaded = [MandApplication loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
   }
   
-  [aboutwindowcontroller showDialog];
+  if(nibloaded){[aboutwindowcontroller showDialog];}
 }
 
 
@@ -84,8 +84,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
 // Note: the sender is needed as these methods are used as an action.
 - (void)showHelp:(id)sender{
   NA_UNUSED(sender);
-  if(!helpwindowcontroller){return;}
-  [helpwindowcontroller showDialog];
+  if(helpwindowcontroller){[helpwindowcontroller showDialog];}
 }
 
 
