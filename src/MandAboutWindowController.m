@@ -2,6 +2,7 @@
 #import "MandAboutWindowController.h"
 #include "MandTranslation.h"
 #include "NAString.h"
+#include "KaroUIHelper.h"
 
 
 #define MAND_ABOUT_KEY         "MandAbout"
@@ -23,18 +24,16 @@
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
   // Set the window title
-  NAString* aboutstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_ABOUT_KEY);
-  [[self window] setTitle:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(aboutstring)], naGetStringUTF8Pointer(applicationname)]];
-  naDelete(aboutstring);
+  NSString* aboutstring = mandTranslate(MAND_TRANSLATION_COLLECTION, MAND_ABOUT_KEY, naGetStringUTF8Pointer(applicationname));
+  [[self window] setTitle:aboutstring];
 
   // Set the button text
-  NAString* donestring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_DONE_KEY);
-  [donebutton setTitle:[NSString stringWithUTF8String:naGetStringUTF8Pointer(donestring)]];
-  naDelete(donestring);
+  NSString* donestring = mandTranslate(MAND_TRANSLATION_COLLECTION, MAND_DONE_KEY);
+  [donebutton setTitle:donestring];
 
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
-  NSImage* iconimage = [[NSImage alloc] initWithContentsOfURL:url];
+  NSImage* iconimage = allocNSImageWithContentsOfUrl(url);
   [iconview setImage:iconimage];
   [iconimage release];
 
@@ -44,13 +43,11 @@
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_SHORT_KEY];
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_KEY];
-  NAString* versionbuildstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
-  [version setStringValue:[NSString stringWithFormat:[NSString stringWithUTF8String:naGetStringUTF8Pointer(versionbuildstring)], versionstring, buildstring]];
-  naDelete(versionbuildstring);
+  NSString* versionbuildstring = mandTranslate(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY, [versionstring UTF8String], [buildstring UTF8String]);
+  [version setStringValue:versionbuildstring];
 
-  NAString* descriptionstring = mandNewBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
-  [aboutdescription setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(descriptionstring)]];
-  naDelete(descriptionstring);
+  NSString* descriptionstring = mandTranslate(NA_NULL, MAND_DESCRIPTION_KEY);
+  [aboutdescription setStringValue:descriptionstring];
 
   // Set the Link to the website
   

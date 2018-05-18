@@ -6,12 +6,9 @@
 
 #include "NAString.h"
 
-//typedef struct MandTranslation MandTranslation;
-//
-//MandTranslation* mandAllocTranslation(const NAUTF8Char* tablename, const NAUTF8Char** keys, NAInt keycount);
-//void mandDeallocTranslation(MandTranslation* translation);
 
 NAString* mandNewBundleString(NAUTF8Char* collection, const NAUTF8Char* key);
+NAString* mandNewBundleStringWithArguments(NAUTF8Char* collection, const NAUTF8Char* key, va_list argumentlist);
 
 
 #endif // MAND_TRANSLATION_INCLUDED

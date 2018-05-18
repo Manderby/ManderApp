@@ -3,6 +3,7 @@
 #import "MandAboutWindowController.h"
 #import "MandHelpWindowController.h"
 #include "MandTranslation.h"
+#include "KaroUIHelper.h"
 
 
 
@@ -12,10 +13,13 @@ NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NA
 
 
 
-NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
-  NAString* transstring = mandNewBundleString(collection, key);
+NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
+  va_list argumentlist;
+  va_start(argumentlist, key);
+  NAString* transstring = mandNewBundleStringWithArguments(collection, key, argumentlist);
   NSString* retstr = [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)];
   naDelete(transstring);
+  va_end(argumentlist);
   return retstr;
 }
 
@@ -132,7 +136,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key){
     NSString* cursorsuffix = @"png";
   #endif
   NSURL* url = [[NSBundle mainBundle] URLForResource:basename withExtension:cursorsuffix];
-  NSImage* cursorimage = [[NSImage alloc] initWithContentsOfURL:url];
+  NSImage* cursorimage = allocNSImageWithContentsOfUrl(url);
   NSCursor* cursor = [[NSCursor alloc] initWithImage:cursorimage hotSpot:NSMakePoint(x, y)];
   [cursorimage release];
   return cursor;

@@ -2,36 +2,6 @@
 #include "MandTranslation.h"
 #include "Carbon/Carbon.h"
 
-//struct MandTranslation{
-//  const NAUTF8Char* tablename;
-//  const NAUTF8Char** keys;
-//  NAString** strings;
-//  NAInt keycount;
-//};
-//
-//
-//
-//MandTranslation* mandAllocTranslation(const NAUTF8Char* tablename, const NAUTF8Char** keys, NAInt keycount){
-//  MandTranslation* translation = naAlloc(MandTranslation);
-//  translation->tablename = tablename;
-//  translation->keys = keys;
-//  NAInt stringarraysize = keycount * naSizeof(NAString*);
-//  translation->strings = naMalloc(stringarraysize);
-//  naNulln(translation->strings, stringarraysize);
-//  #ifndef NDEBUG
-//    translation->keycount = keycount;
-//  #endif
-//  return translation;
-//}
-//
-//
-//
-//void mandDeallocTranslation(MandTranslation* translation){
-//  for(NAInt i=0; i<translation->keycount; i++){
-//    naDelete(translation->strings[i]);
-//  }
-//}
-
 
 
 NAString* mandNewBundleString(NAUTF8Char* collection, const NAUTF8Char* key){
@@ -46,11 +16,25 @@ NAString* mandNewBundleString(NAUTF8Char* collection, const NAUTF8Char* key){
     retstr = CFBundleCopyLocalizedString(bundle, keystr, NA_NULL, NA_NULL);
   }
   CFRelease(keystr);
-  CFIndex requredLen;
+  CFIndex requiredLen;
   CFRange range = CFRangeMake(0, CFStringGetLength(retstr));
-  CFStringGetBytes(retstr, range, kCFStringEncodingUTF8, 0, NA_FALSE, NA_NULL, 0, &requredLen);
-  NAUTF8Char* buffer = naMalloc(requredLen);
-  CFStringGetBytes(retstr, range, kCFStringEncodingUTF8, 0, NA_FALSE, (UInt8*)buffer, requredLen, NA_NULL);
+  CFStringGetBytes(retstr, range, kCFStringEncodingUTF8, 0, NA_FALSE, NA_NULL, 0, &requiredLen);
+  NAUTF8Char* buffer = naMalloc(requiredLen);
+  CFStringGetBytes(retstr, range, kCFStringEncodingUTF8, 0, NA_FALSE, (UInt8*)buffer, requiredLen, NA_NULL);
   CFRelease(retstr);
-  return naNewStringWithMutableUTF8Buffer(buffer, requredLen, (NAMutator)naFree);
+  
+  return naNewStringWithMutableUTF8Buffer(buffer, requiredLen, (NAMutator)naFree);
+}
+
+
+
+NAString* mandNewBundleStringWithArguments(NAUTF8Char* collection, const NAUTF8Char* key, va_list argumentlist){
+  va_list argumentlist2;
+  va_copy(argumentlist2, argumentlist);
+    NAString* keystring = mandNewBundleString(collection, key);
+    NAString* finalstring = naNewStringWithArguments(naGetStringUTF8Pointer(keystring), argumentlist2);  
+    naDelete(keystring);
+  va_end(argumentlist2);
+  
+  return finalstring;
 }
