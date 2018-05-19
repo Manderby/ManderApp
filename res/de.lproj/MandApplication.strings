@@ -1,14 +1,15 @@
 
 /* Strings for MandAboutWindowController.m */
-/* The %@ denotes the application name */
+/* The %s denotes the application name */
 MandAbout              = "Über %s";
 MandPreferences        = "%s Einstellungen";
 MandDone               = "Fertig";
 MandHelp               = "%s Hilfe";
-MandVersionBuild       = "Version %@ (Build %@)";
+/* The %s denotes the version and build string */
+MandVersionBuild       = "Version %s (Build %s)";
 
 /* Strings for Menus */
-/* The %@ denotes the application name */
+/* The %s denotes the application name */
 MandSubmenuAbout       = "Über %s";
 MandSubmenuPreferences = "Einstellungen ...";
 MandSubmenuServices    = "Dienste";

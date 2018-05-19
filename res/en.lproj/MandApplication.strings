@@ -5,7 +5,8 @@ MandAbout              = "About %s";
 MandPreferences        = "%s Preferences";
 MandDone               = "Done";
 MandHelp               = "%s Help";
-MandVersionBuild       = "Version %@ (Build %@)";
+/* The %s denotes the version and build string */
+MandVersionBuild       = "Version %s (Build %s)";
 
 /* Strings for Menus */
 /* The %s denotes the application name */

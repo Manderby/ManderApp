@@ -3,6 +3,7 @@
 #include "MandTranslation.h"
 #include "NAString.h"
 #include "KaroUIHelper.h"
+#include "MandCocoaHelper.h"
 
 
 #define MAND_ABOUT_KEY         "MandAbout"
@@ -38,16 +39,20 @@
   [iconimage release];
 
   // Set the application name
-  [applicationnamefield setStringValue:[NSString stringWithUTF8String:naGetStringUTF8Pointer(applicationname)]];
+  naSendNSTextFieldSetStringValue(applicationnamefield, applicationname);
 
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_SHORT_KEY];
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_KEY];
-  NSString* versionbuildstring = mandTranslate(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY, [versionstring UTF8String], [buildstring UTF8String]);
-  [version setStringValue:versionbuildstring];
+  NAString* transstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
+  NAString* versionbuildstring = naNewStringWithFormat(naGetStringUTF8Pointer(transstring), [versionstring UTF8String], [buildstring UTF8String]);
+  naSendNSTextFieldSetStringValue(version, versionbuildstring);
+  naDelete(versionbuildstring);
+  naDelete(transstring);
 
-  NSString* descriptionstring = mandTranslate(NA_NULL, MAND_DESCRIPTION_KEY);
-  [aboutdescription setStringValue:descriptionstring];
+  NAString* descstring = mandNewBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
+  naSendNSTextFieldSetStringValue(aboutdescription, descstring);
+  naDelete(descstring);
 
   // Set the Link to the website
   
