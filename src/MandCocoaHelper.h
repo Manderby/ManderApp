@@ -8,45 +8,51 @@ typedef struct NASelector NASelector;
 void releaseNSObject(void* nsobj);
 
 // NSControl
-void naSendNSControlSetAction(void* nscontrol, NASelector* action);
-void naSendNSControlSetTarget(void* nscontrol, void* target);
+void naTellNSControlSetAction(void* nscontrol, NASelector* action);
+void naTellNSControlSetTarget(void* nscontrol, void* target);
+
+// NSView
+void naTellNSViewSetVisible(void* nsview, NABool visible);
 
 // NSButton
 void* allocNSButton(void);
 void* allocNSButtonWithFrame(NARect frame);
-void  naSendNSButtonSetTitle(void* nsbutton, const NAString* title);
-void  naSendNSButtonSetToolTip(void* nsbutton, const NAString* tooltip);
-void  naSendNSButtonSetState(void* nsbutton, NABool state);
-void  naSendNSButtonSetTag(void* nsbutton, NAInt tag);
-void  naSendNSButtonSetImage(void* nsbutton, void* nsimage);
-void  naSendNSButtonSetAlternativeImage(void* nsbutton, void* nsimage);
-void  naSendNSButtonSetImagePosition(void* nsbutton, int position);
-void  naSendNSButtonSetImageScaling(void* nsbutton, int scaling);
-void  naSendNSButtonSetBordered(void* nsbutton, NABool set);
-void  naSendNSButtonSetButtonType(void* nsbutton, int type);
-void  naSendNSButtonSetBezelStyle(void* nsbutton, int style);
+void  naTellNSButtonSetTitle(void* nsbutton, const NAString* title);
+void  naTellNSButtonSetToolTip(void* nsbutton, const NAString* tooltip);
+void  naTellNSButtonSetState(void* nsbutton, NABool state);
+void  naTellNSButtonSetTag(void* nsbutton, NAInt tag);
+void  naTellNSButtonSetImage(void* nsbutton, void* nsimage);
+void  naTellNSButtonSetAlternativeImage(void* nsbutton, void* nsimage);
+void  naTellNSButtonSetImagePosition(void* nsbutton, int position);
+void  naTellNSButtonSetImageScaling(void* nsbutton, int scaling);
+void  naTellNSButtonSetBordered(void* nsbutton, NABool set);
+void  naTellNSButtonSetButtonType(void* nsbutton, int type);
+void  naTellNSButtonSetBezelStyle(void* nsbutton, int style);
+NABool naAskNSButtonState(void* nsbutton);
 
 // NSImage
 void* allocNSImage(void);
 void* allocNSImageWithSize(NASizei size);
 void* allocNSImageWithContentsOfUrl(void* nsurl);
-void  naSendNSImageAddRepresentation(void* nsimage, CGImageRef rep);
+void  naTellNSImageAddRepresentation(void* nsimage, CGImageRef rep);
 
 // NSCursor
 void* allocNSCursor(void);
 void* allocNSCursorWithImage(void* nsimage, NAPos hotspot);
 
 // NSSlider
-void naSendNSSliderSetDoubleValue(void* nsslider, double value);
+void naTellNSSliderSetDoubleValue(void* nsslider, double value);
+double naAskNSSliderDoubleValue(void* nsslider);
 
 // NSTextField
-void naSendNSTextFieldSetStringValue(void* nstextfield, const NAString* value);
-void naSendNSTextFieldSetTextColor(void* nstextfield, const float* rgba);
+void naTellNSTextFieldSetStringValue(void* nstextfield, const NAString* value);
+void naTellNSTextFieldSetTextColor(void* nstextfield, const float* rgba);
+NAString* naAskNSTextFieldStringValue(void* nstextfield);
 
 // NSColor
 void* allocNSColor(void);
 void* allocNSColorWithLinearRGBA(const float* rgba);
-void naSendNSColorSet(void* nscolor);
+void naTellNSColorSet(void* nscolor);
 
 
 

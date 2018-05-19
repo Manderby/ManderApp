@@ -19,14 +19,23 @@ void releaseNSObject(void* nsobj){
 
 // NSControl
 
-void naSendNSControlSetAction(void* nscontrol, NASelector* action){
+void naTellNSControlSetAction(void* nscontrol, NASelector* action){
   NSControl* control = nscontrol;
   [control setAction:(SEL)(action->sel)];
 }
 
-void naSendNSControlSetTarget(void* nscontrol, void* target){
+void naTellNSControlSetTarget(void* nscontrol, void* target){
   NSControl* control = nscontrol;
   [control setTarget:(id)target];
+}
+
+
+
+// NSView
+
+void naTellNSViewSetVisible(void* nsview, NABool visible){
+  NSView* view = nsview;
+  [view setHidden:visible ? NO : YES];
 }
 
 
@@ -41,61 +50,66 @@ void* allocNSButtonWithFrame(NARect frame){
   return [(NSButton*)allocNSButton() initWithFrame:naMakeNSRectWithRect(frame)];
 }
 
-void naSendNSButtonSetTitle(void* nsbutton, const NAString* title){
+void naTellNSButtonSetTitle(void* nsbutton, const NAString* title){
   NSButton* button = nsbutton;
   [button setTitle:naAllocNSStringWithNAString(title)];
 }
 
-void naSendNSButtonSetToolTip(void* nsbutton, const NAString* tooltip){
+void naTellNSButtonSetToolTip(void* nsbutton, const NAString* tooltip){
   NSButton* button = nsbutton;
   [button setToolTip:naAllocNSStringWithNAString(tooltip)];
 }
 
-void naSendNSButtonSetState(void* nsbutton, NABool state){
+void naTellNSButtonSetState(void* nsbutton, NABool state){
   NSButton* button = nsbutton;
   [button setState:state ? NSOnState : NSOffState];
 }
 
-void naSendNSButtonSetTag(void* nsbutton, NAInt tag){
+void naTellNSButtonSetTag(void* nsbutton, NAInt tag){
   NSButton* button = nsbutton;
   [button setTag:(NSInteger)tag];
 }
 
-void naSendNSButtonSetImage(void* nsbutton, void* nsimage){
+void naTellNSButtonSetImage(void* nsbutton, void* nsimage){
   NSButton* button = nsbutton;
   NSImage* image = nsimage;
   [button setImage:image];
 }
 
-void naSendNSButtonSetAlternativeImage(void* nsbutton, void* nsimage){
+void naTellNSButtonSetAlternativeImage(void* nsbutton, void* nsimage){
   NSButton* button = nsbutton;
   NSImage* image = nsimage;
   [button setAlternateImage:image];
 }
 
-void naSendNSButtonSetImagePosition(void* nsbutton, int position){
+void naTellNSButtonSetImagePosition(void* nsbutton, int position){
   NSButton* button = nsbutton;
   [button setImagePosition:(NSCellImagePosition)position];
 }
 
-void naSendNSButtonSetImageScaling(void* nsbutton, int scaling){
+void naTellNSButtonSetImageScaling(void* nsbutton, int scaling){
   NSButton* button = nsbutton;
   [button setImageScaling:(NSImageScaling)scaling];
 }
 
-void naSendNSButtonSetBordered(void* nsbutton, NABool set){
+void naTellNSButtonSetBordered(void* nsbutton, NABool set){
   NSButton* button = nsbutton;
   [button setBordered:(bool)set];
 }
 
-void naSendNSButtonSetButtonType(void* nsbutton, int type){
+void naTellNSButtonSetButtonType(void* nsbutton, int type){
   NSButton* button = nsbutton;
   [button setButtonType:(NSButtonType)type];
 }
 
-void naSendNSButtonSetBezelStyle(void* nsbutton, int style){
+void naTellNSButtonSetBezelStyle(void* nsbutton, int style){
   NSButton* button = nsbutton;
   [button setBezelStyle:(NSBezelStyle)style];
+}
+
+NABool naAskNSButtonState(void* nsbutton){
+  NSButton* button = nsbutton;
+  return ([button state] == NSOnState);
 }
 
 
@@ -115,7 +129,7 @@ void* allocNSImageWithContentsOfUrl(void* nsurl){
   return [(NSImage*)allocNSImage() initWithContentsOfURL:url];
 }
 
-void naSendNSImageAddRepresentation(void* nsimage, CGImageRef rep){
+void naTellNSImageAddRepresentation(void* nsimage, CGImageRef rep){
   NSImage* image = nsimage;
   NSBitmapImageRep* nsrep = [[[NSBitmapImageRep alloc] initWithCGImage:rep] autorelease];
   [image addRepresentation:nsrep];
@@ -137,23 +151,32 @@ void* allocNSCursorWithImage(void* nsimage, NAPos hotspot){
 
 // NSSlider
 
-void naSendNSSliderSetDoubleValue(void* nsslider, double value){
+void naTellNSSliderSetDoubleValue(void* nsslider, double value){
   NSSlider* slider = nsslider;
   [slider setDoubleValue:value];
 }
 
+double naAskNSSliderDoubleValue(void* nsslider){
+  NSSlider* slider = nsslider;
+  return [slider doubleValue];
+}
 
 
 // NSTextField
 
-void naSendNSTextFieldSetStringValue(void* nstextfield, const NAString* value){
+void naTellNSTextFieldSetStringValue(void* nstextfield, const NAString* value){
   NSTextField* textfield = nstextfield;
   [textfield setStringValue:naAllocNSStringWithNAString(value)];
 }
 
-void naSendNSTextFieldSetTextColor(void* nstextfield, const float* rgba){
+void naTellNSTextFieldSetTextColor(void* nstextfield, const float* rgba){
   NSTextField* textfield = nstextfield;
   [textfield setTextColor:allocNSColorWithLinearRGBA(rgba)];
+}
+
+NAString* naAskNSTextFieldStringValue(void* nstextfield){
+  NSTextField* textfield = nstextfield;
+  return naNewStringWithFormat([[textfield stringValue] UTF8String]);
 }
 
 
@@ -174,7 +197,7 @@ void* allocNSColorWithLinearRGBA(const float* rgba){
   return color;
 }
 
-void naSendNSColorSet(void* nscolor){
+void naTellNSColorSet(void* nscolor){
   NSColor* color = nscolor;
   [color set];
 }

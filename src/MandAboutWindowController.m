@@ -39,19 +39,19 @@
   [iconimage release];
 
   // Set the application name
-  naSendNSTextFieldSetStringValue(applicationnamefield, applicationname);
+  naTellNSTextFieldSetStringValue(applicationnamefield, applicationname);
 
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_SHORT_KEY];
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_KEY];
   NAString* transstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
   NAString* versionbuildstring = naNewStringWithFormat(naGetStringUTF8Pointer(transstring), [versionstring UTF8String], [buildstring UTF8String]);
-  naSendNSTextFieldSetStringValue(version, versionbuildstring);
+  naTellNSTextFieldSetStringValue(version, versionbuildstring);
   naDelete(versionbuildstring);
   naDelete(transstring);
 
   NAString* descstring = mandNewBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
-  naSendNSTextFieldSetStringValue(aboutdescription, descstring);
+  naTellNSTextFieldSetStringValue(aboutdescription, descstring);
   naDelete(descstring);
 
   // Set the Link to the website
