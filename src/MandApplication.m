@@ -3,7 +3,6 @@
 #import "MandAboutWindowController.h"
 #import "MandHelpWindowController.h"
 #include "MandTranslation.h"
-#include "KaroUIHelper.h"
 #include "MandCocoaHelper.h"
 
 

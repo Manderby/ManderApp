@@ -2,7 +2,6 @@
 #import "MandAboutWindowController.h"
 #include "MandTranslation.h"
 #include "NAString.h"
-#include "KaroUIHelper.h"
 #include "MandCocoaHelper.h"
 
 
