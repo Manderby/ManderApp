@@ -3,9 +3,10 @@
 
 #import "MandApplication.h"
 #import "MandHelpWindowController.h"
+#import "MandTranslation.h"
 
 
-#define MAND_HELP_KEY        @"MandHelp"
+#define MAND_HELP_KEY        "MandHelp"
 
 
 
@@ -19,10 +20,13 @@
     self = [super initWithWindow:window];
 
     // Set the window title
-    NSString* helpstring = [[NSBundle mainBundle] localizedStringForKey:MAND_HELP_KEY value:nil table:@"MandApplication"];
+    NAString* helpstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_HELP_KEY);
     NAString* applicationname = [(MandApplication*)NSApp newApplicationNameString];
-    [[self window] setTitle:[NSString stringWithFormat:helpstring, applicationname]];
+    NAString* applicationhelpstring = naNewStringWithFormat(naGetStringUTF8Pointer(helpstring), naGetStringUTF8Pointer(applicationname));
+    [[self window] setTitle:[NSString stringWithUTF8String:naGetStringUTF8Pointer(applicationhelpstring)]];
+    naDelete(applicationhelpstring);
     naDelete(applicationname);
+    naDelete(helpstring);
 
 
     webview = [[WebView alloc] initWithFrame:[[[self window] contentView] frame] frameName:nil groupName:nil];
