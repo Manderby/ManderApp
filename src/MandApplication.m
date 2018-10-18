@@ -1,7 +1,6 @@
 
 #import "MandApplication.h"
 #import "MandAboutWindowController.h"
-#import "MandHelpWindowController.h"
 #include "MandTranslation.h"
 #include "MandCocoaHelper.h"
 
@@ -45,7 +44,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
   [aboutmenuitem setTarget:self];
   [aboutmenuitem setAction:@selector(showAbout:)];
   
-  helpwindowcontroller = nil;
+//  helpwindowcontroller = nil;
 
 }
 
@@ -53,7 +52,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
 - (void)dealloc{
   [aboutwindowcontroller release];
   [aboutWindowNibObjects release];
-  [helpwindowcontroller release];
+//  [helpwindowcontroller release];
   [super dealloc];
 }
 
@@ -73,23 +72,23 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
 
 
 
-- (void)setHelpDocument:(NSURL*)url{
-  if(!helpwindowcontroller){
-    helpwindowcontroller = [[MandHelpWindowController alloc] init];
-  }
-  [helpwindowcontroller setBaseURL:url];
-
-  [helpMenuItem setTarget:self];
-  [helpMenuItem setAction:@selector(showHelp:)];
-}
+//- (void)setHelpDocument:(NSURL*)url{
+//  if(!helpwindowcontroller){
+//    helpwindowcontroller = [[MandHelpWindowController alloc] init];
+//  }
+//  [helpwindowcontroller setBaseURL:url];
+//
+//  [helpMenuItem setTarget:self];
+//  [helpMenuItem setAction:@selector(showHelp:)];
+//}
 
 
 
 // Note: the sender is needed as these methods are used as an action.
-- (void)showHelp:(id)sender{
-  NA_UNUSED(sender);
-  if(helpwindowcontroller){[helpwindowcontroller showDialog];}
-}
+//- (void)showHelp:(id)sender{
+//  NA_UNUSED(sender);
+//  if(helpwindowcontroller){[helpwindowcontroller showDialog];}
+//}
 
 
 

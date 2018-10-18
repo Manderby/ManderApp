@@ -27,11 +27,11 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...);
   IBOutlet NSMenu* menu;
   IBOutlet NSMenuItem* helpMenuItem;
   IBOutlet MandAboutWindowController* aboutwindowcontroller;
-  MandHelpWindowController* helpwindowcontroller;
+//  MandHelpWindowController* helpwindowcontroller;
   NSArray* aboutWindowNibObjects;
 }
 
-- (void)setHelpDocument:(NSURL*)url;
+//- (void)setHelpDocument:(NSURL*)url;
 
 - (NAString*)newApplicationNameString;
 
