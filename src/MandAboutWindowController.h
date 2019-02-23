@@ -1,5 +1,5 @@
 
-#import "MandApplication.h"
+#import "ManderApp.h"
 
 @interface MandAboutWindowController : NSWindowController {
   IBOutlet NSTextField* applicationnamefield;

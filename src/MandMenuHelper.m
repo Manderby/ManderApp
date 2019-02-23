@@ -1,5 +1,5 @@
 
-#import "MandApplication.h"
+#import "ManderApp.h"
 #import "MandMenuHelper.h"
 #include "MandTranslation.h"
 
@@ -57,7 +57,7 @@ void trySetMenuItemTranslation(NSMenuItem* item, const NAUTF8Char* key){
 
 void trySetMenuItemTranslationWithApplication(NSMenuItem* item, NAUTF8Char* key){
   if(item){
-    NAString* applicationname = [(MandApplication*)NSApp newApplicationNameString];
+    NAString* applicationname = [(ManderApp*)NSApp newApplicationNameString];
     NSString* transstring = mandTranslate(MAND_TRANSLATION_COLLECTION, key, naGetStringUTF8Pointer(applicationname));
     [item setTitle: transstring];
     naDelete(applicationname);

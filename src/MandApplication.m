@@ -1,5 +1,5 @@
 
-#import "MandApplication.h"
+#import "ManderApp.h"
 #import "MandAboutWindowController.h"
 #include "MandTranslation.h"
 #include "MandCocoaHelper.h"
@@ -24,7 +24,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
 
 
 
-@implementation MandApplication
+@implementation ManderApp
 
 
 - (id)init{
@@ -64,7 +64,7 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
   
   BOOL nibloaded = NA_FALSE;
   if(!aboutwindowcontroller){
-    nibloaded = [MandApplication loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
+    nibloaded = [ManderApp loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
   }
   
   if(nibloaded){[aboutwindowcontroller showDialog];}

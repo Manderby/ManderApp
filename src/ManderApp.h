@@ -10,7 +10,7 @@
 #define MAND_LINE_HEIGHT_POINTS 12
 #define MAND_SCROLL_SPEED 0.15
 
-#define MAND_TRANSLATION_COLLECTION "MandApplication"
+#define MAND_TRANSLATION_COLLECTION "ManderApp"
 
 @class MandAboutWindowController;
 @class MandHelpWindowController;
@@ -23,7 +23,7 @@ NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NA
 NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...);
 
 
-@interface MandApplication : NSApplication <NSApplicationDelegate> {
+@interface ManderApp : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
   IBOutlet NSMenuItem* helpMenuItem;
   IBOutlet MandAboutWindowController* aboutwindowcontroller;

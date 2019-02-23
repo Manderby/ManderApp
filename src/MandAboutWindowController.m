@@ -19,7 +19,7 @@
 - (void)awakeFromNib{
 
   NSURL* url;
-  NAString* applicationname = [(MandApplication*)NSApp newApplicationNameString];
+  NAString* applicationname = [(ManderApp*)NSApp newApplicationNameString];
   NSString* iconfilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_ICON_FILE_KEY];
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
