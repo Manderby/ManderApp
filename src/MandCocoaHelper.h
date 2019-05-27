@@ -1,4 +1,7 @@
 
+#include "NABase.h"
+#if (NA_OS == NA_OS_MAC_OS_X) && (NA_CONFIG_COMPILE_GUI == 1)
+
 #include "NACoord.h"
 #include "NAString.h"
 
@@ -55,4 +58,4 @@ void* allocNSColorWithLinearRGBA(const float* rgba);
 void naTellNSColorSet(void* nscolor);
 
 
-
+#endif
