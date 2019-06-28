@@ -7,7 +7,6 @@
 
 #define MAND_ABOUT_KEY         "MandAbout"
 #define MAND_DONE_KEY          "MandDone"
-#define MAND_DESCRIPTION_KEY   "MandDescription"
 #define MAND_VERSION_BUILD_KEY "MandVersionBuild"
 
 #define MAND_BUNDLE_ICON_FILE_KEY @"CFBundleIconFile"
@@ -49,10 +48,6 @@
   naDelete(versionbuildstring);
   naDelete(transstring);
 
-  NAString* descstring = mandNewBundleString(NA_NULL, MAND_DESCRIPTION_KEY);
-  naTellNSTextFieldSetStringValue(aboutdescription, descstring);
-  naDelete(descstring);
-
   // Set the Link to the website
   
   // both are needed, otherwise hyperlink won't accept mousedown
@@ -80,6 +75,13 @@
 
 - (void)showDialog{
   [[self window] makeKeyAndOrderFront:self];
+}
+
+
+- (void)setApplicationDescription:(const NAUTF8Char*) desc{
+  NAString* descstring = naNewStringWithFormat(desc);
+  naTellNSTextFieldSetStringValue(aboutdescription, descstring);
+  naDelete(descstring);
 }
 
 

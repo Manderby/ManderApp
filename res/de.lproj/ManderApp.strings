@@ -45,6 +45,3 @@ MandSubmenuMinimize        = "Minimieren";
 MandSubmenuMaximize        = "Maximieren";
 MandSubmenuBringAllToFront = "Alle nach vorne bringen";
 
-/* The following key will be displayed in the about window. Define it in you
-   own applications Localizable.strings file.*/
-/* MandDescription = "Diese Zeile wird im About gezeigt."; */

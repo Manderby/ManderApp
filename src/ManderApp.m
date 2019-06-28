@@ -67,7 +67,10 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
     nibloaded = [ManderApp loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
   }
   
-  if(nibloaded){[aboutwindowcontroller showDialog];}
+  if(nibloaded){
+    [aboutwindowcontroller setApplicationDescription:desc];
+    [aboutwindowcontroller showDialog];
+  }
 }
 
 
@@ -101,6 +104,11 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
   return retstring;
 }
 
+
+
+- (void)setApplicationDescription:(const NAUTF8Char*) newdesc{
+  desc = newdesc;
+}
 
 
 

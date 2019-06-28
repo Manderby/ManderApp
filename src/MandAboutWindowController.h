@@ -10,6 +10,7 @@
   IBOutlet NSButton* donebutton;
 }
 - (void)showDialog;
+- (void)setApplicationDescription:(const NAUTF8Char*) desc;
 
 @end
 

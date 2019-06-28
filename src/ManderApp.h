@@ -29,11 +29,13 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...);
   IBOutlet MandAboutWindowController* aboutwindowcontroller;
 //  MandHelpWindowController* helpwindowcontroller;
   NSArray* aboutWindowNibObjects;
+  const NAUTF8Char* desc;
 }
 
 //- (void)setHelpDocument:(NSURL*)url;
 
 - (NAString*)newApplicationNameString;
+- (void)setApplicationDescription:(const NAUTF8Char*) desc;
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;
