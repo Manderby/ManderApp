@@ -1,8 +1,8 @@
 
 #import "ManderApp.h"
 #import "MandAboutWindowController.h"
-#include "MandTranslation.h"
 #include "MandCocoaHelper.h"
+#include "ManderAppTranslations.h"
 
 
 
@@ -12,14 +12,13 @@ NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NA
 
 
 
-NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
+NAString* mandTranslate(NAInt id, ...){
   va_list argumentlist;
-  va_start(argumentlist, key);
-  NAString* transstring = mandNewBundleStringWithArguments(collection, key, argumentlist);
-  NSString* retstr = [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)];
-  naDelete(transstring);
+  va_start(argumentlist, id);
+  const NAUTF8Char* keystring = MANDER_APP_TRANSLATE(id);
+  NAString* finalstring = naNewStringWithArguments(keystring, argumentlist);  
   va_end(argumentlist);
-  return retstr;
+  return finalstring;
 }
 
 
@@ -36,6 +35,10 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
+
+  manderAppTranslatorGroup = naRegisterTranslatorGroup();
+  #include "ManderApp_eng.h"
+  #include "ManderApp_deu.h"
 
   aboutwindowcontroller = nil;
   aboutWindowNibObjects = nil;
@@ -110,6 +113,11 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...){
   desc = newdesc;
 }
 
+
+
+- (NAInt)getManderAppTranslatorGroup{
+  return manderAppTranslatorGroup;
+}
 
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects{

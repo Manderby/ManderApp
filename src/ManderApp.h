@@ -10,8 +10,6 @@
 #define MAND_LINE_HEIGHT_POINTS 12
 #define MAND_SCROLL_SPEED 0.15
 
-#define MAND_TRANSLATION_COLLECTION "ManderApp"
-
 @class MandAboutWindowController;
 @class MandHelpWindowController;
 
@@ -20,7 +18,7 @@
 NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder);
 
 
-NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...);
+NAString* mandTranslate(NAInt id, ...);
 
 
 @interface ManderApp : NSApplication <NSApplicationDelegate> {
@@ -30,12 +28,14 @@ NSString* mandTranslate(NAUTF8Char* collection, const NAUTF8Char* key, ...);
 //  MandHelpWindowController* helpwindowcontroller;
   NSArray* aboutWindowNibObjects;
   const NAUTF8Char* desc;
+  NAInt manderAppTranslatorGroup;
 }
 
 //- (void)setHelpDocument:(NSURL*)url;
 
 - (NAString*)newApplicationNameString;
 - (void)setApplicationDescription:(const NAUTF8Char*) desc;
+- (NAInt)getManderAppTranslatorGroup;
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;

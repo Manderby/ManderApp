@@ -1,13 +1,9 @@
 
 #import "MandAboutWindowController.h"
-#include "MandTranslation.h"
 #include "NAString.h"
 #include "MandCocoaHelper.h"
+#include "ManderAppTranslations.h"
 
-
-#define MAND_ABOUT_KEY         "MandAbout"
-#define MAND_DONE_KEY          "MandDone"
-#define MAND_VERSION_BUILD_KEY "MandVersionBuild"
 
 #define MAND_BUNDLE_ICON_FILE_KEY @"CFBundleIconFile"
 #define MAND_BUNDLE_VERSION_SHORT_KEY @"CFBundleShortVersionString"
@@ -23,12 +19,16 @@
   NSString* iconbasename = [iconfilename stringByDeletingPathExtension];
 
   // Set the window title
-  NSString* aboutstring = mandTranslate(MAND_TRANSLATION_COLLECTION, MAND_ABOUT_KEY, naGetStringUTF8Pointer(applicationname));
-  [[self window] setTitle:aboutstring];
+  NAString* naaboutstring = mandTranslate(MandAbout, naGetStringUTF8Pointer(applicationname));
+  NSString* nsaboutstring = [NSString stringWithUTF8String:naGetStringUTF8Pointer(naaboutstring)];
+  naDelete(naaboutstring);
+  [[self window] setTitle:nsaboutstring];
 
   // Set the button text
-  NSString* donestring = mandTranslate(MAND_TRANSLATION_COLLECTION, MAND_DONE_KEY);
-  [donebutton setTitle:donestring];
+  NAString* nadonestring = mandTranslate(MandDone);
+  NSString* nsdonestring = [NSString stringWithUTF8String:naGetStringUTF8Pointer(nadonestring)];
+  naDelete(nadonestring);
+  [donebutton setTitle:nsdonestring];
 
   // Set the application icon
   url = [[NSBundle mainBundle] URLForResource:iconbasename withExtension:@"icns"];
@@ -42,11 +42,8 @@
   // Set the version
   NSString* versionstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_SHORT_KEY];
   NSString* buildstring = [[NSBundle mainBundle] objectForInfoDictionaryKey:MAND_BUNDLE_VERSION_KEY];
-  NAString* transstring = mandNewBundleString(MAND_TRANSLATION_COLLECTION, MAND_VERSION_BUILD_KEY);
-  NAString* versionbuildstring = naNewStringWithFormat(naGetStringUTF8Pointer(transstring), [versionstring UTF8String], [buildstring UTF8String]);
+  NAString* versionbuildstring = mandTranslate(MandVersionBuild, [versionstring UTF8String], [buildstring UTF8String]);
   naTellNSTextFieldSetStringValue(version, versionbuildstring);
-  naDelete(versionbuildstring);
-  naDelete(transstring);
 
   // Set the Link to the website
   
