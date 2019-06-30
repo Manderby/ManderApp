@@ -50,14 +50,14 @@ void* allocNSButtonWithFrame(NARect frame){
   return [(NSButton*)allocNSButton() initWithFrame:naMakeNSRectWithRect(frame)];
 }
 
-void naTellNSButtonSetTitle(void* nsbutton, const NAString* title){
+void naTellNSButtonSetTitle(void* nsbutton, const NAUTF8Char* title){
   NSButton* button = nsbutton;
-  [button setTitle:naAllocNSStringWithNAString(title)];
+  [button setTitle:[NSString stringWithUTF8String:title]];
 }
 
-void naTellNSButtonSetToolTip(void* nsbutton, const NAString* tooltip){
+void naTellNSButtonSetToolTip(void* nsbutton, const NAUTF8Char* tooltip){
   NSButton* button = nsbutton;
-  [button setToolTip:naAllocNSStringWithNAString(tooltip)];
+  [button setToolTip:[NSString stringWithUTF8String:tooltip]];
 }
 
 void naTellNSButtonSetState(void* nsbutton, NABool state){
@@ -164,9 +164,9 @@ double naAskNSSliderDoubleValue(void* nsslider){
 
 // NSTextField
 
-void naTellNSTextFieldSetStringValue(void* nstextfield, const NAString* value){
+void naTellNSTextFieldSetStringValue(void* nstextfield, const NAUTF8Char* value){
   NSTextField* textfield = nstextfield;
-  [textfield setStringValue:naAllocNSStringWithNAString(value)];
+  [textfield setStringValue:[NSString stringWithUTF8String:value]];
 }
 
 void naTellNSTextFieldSetTextColor(void* nstextfield, const float* rgba){

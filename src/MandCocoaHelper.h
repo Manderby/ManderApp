@@ -20,8 +20,8 @@ void naTellNSViewSetVisible(void* nsview, NABool visible);
 // NSButton
 void* allocNSButton(void);
 void* allocNSButtonWithFrame(NARect frame);
-void  naTellNSButtonSetTitle(void* nsbutton, const NAString* title);
-void  naTellNSButtonSetToolTip(void* nsbutton, const NAString* tooltip);
+void  naTellNSButtonSetTitle(void* nsbutton, const NAUTF8Char* title);
+void  naTellNSButtonSetToolTip(void* nsbutton, const NAUTF8Char* tooltip);
 void  naTellNSButtonSetState(void* nsbutton, NABool state);
 void  naTellNSButtonSetTag(void* nsbutton, NAInt tag);
 void  naTellNSButtonSetImage(void* nsbutton, void* nsimage);
@@ -48,7 +48,7 @@ void naTellNSSliderSetDoubleValue(void* nsslider, double value);
 double naAskNSSliderDoubleValue(void* nsslider);
 
 // NSTextField
-void naTellNSTextFieldSetStringValue(void* nstextfield, const NAString* value);
+void naTellNSTextFieldSetStringValue(void* nstextfield, const NAUTF8Char* value);
 void naTellNSTextFieldSetTextColor(void* nstextfield, const float* rgba);
 NAString* naAskNSTextFieldStringValue(void* nstextfield);
 

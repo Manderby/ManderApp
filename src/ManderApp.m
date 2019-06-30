@@ -33,7 +33,7 @@ NAString* mandTranslate(NAInt id, ...){
 }
 
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification{
+- (void)applicationWillFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
 
   manderAppTranslatorGroup = naRegisterTranslatorGroup();
