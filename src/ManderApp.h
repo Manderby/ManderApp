@@ -1,5 +1,4 @@
 
-#include "MandConfiguration.h"
 #include "MandMenuHelper.h"
 #include "MandEnvironment.h"
 
