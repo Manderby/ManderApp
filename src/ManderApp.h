@@ -4,13 +4,13 @@
 
 #import <Cocoa/Cocoa.h>
 #include "NABase.h"
+#include "NAUI.h"
 
 
 #define MAND_LINE_HEIGHT_POINTS 12
 #define MAND_SCROLL_SPEED 0.15
 
 @class MandAboutWindowController;
-@class MandHelpWindowController;
 
 
 
@@ -22,19 +22,13 @@ NAString* mandTranslate(NAInt id, ...);
 
 @interface ManderApp : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
-  IBOutlet NSMenuItem* helpMenuItem;
-  IBOutlet MandAboutWindowController* aboutwindowcontroller;
-//  MandHelpWindowController* helpwindowcontroller;
   NSArray* aboutWindowNibObjects;
   const NAUTF8Char* desc;
-  NAInt manderAppTranslatorGroup;
+  
+  NAWindow* aboutWindow;
 }
 
-//- (void)setHelpDocument:(NSURL*)url;
-
-- (NAString*)newApplicationNameString;
 - (void)setApplicationDescription:(const NAUTF8Char*) desc;
-- (NAInt)getManderAppTranslatorGroup;
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;

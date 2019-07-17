@@ -1,8 +1,9 @@
 
 #include "NATranslator.h"
-#include "ManderApp.h"
 
-#define MANDER_APP_TRANSLATE(id) naTranslate([(ManderApp*)NSApp getManderAppTranslatorGroup], id)
+extern NAInt manderAppTranslatorGroup;
+
+#define MANDER_APP_TRANSLATE(id) naTranslate(manderAppTranslatorGroup, id)
 
 enum{
   MandAbout,

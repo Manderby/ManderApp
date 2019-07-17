@@ -1,8 +1,12 @@
 
 #import "ManderApp.h"
-#import "MandAboutWindowController.h"
 #include "MandCocoaHelper.h"
 #include "ManderAppTranslations.h"
+#include "AboutWindow.h"
+
+
+
+NAInt manderAppTranslatorGroup;
 
 
 
@@ -39,23 +43,23 @@ NAString* mandTranslate(NAInt id, ...){
   manderAppTranslatorGroup = naRegisterTranslatorGroup();
   #include "ManderApp_eng.h"
   #include "ManderApp_deu.h"
+}
 
-  aboutwindowcontroller = nil;
+- (void)applicationDidFinishLaunching:(NSNotification *)notification{
+  NA_UNUSED(notification);
+
+  aboutWindow = createAboutWindow();
+
   aboutWindowNibObjects = nil;
   NSMenu* applicationmenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
   NSMenuItem* aboutmenuitem = [applicationmenu itemAtIndex:0];
   [aboutmenuitem setTarget:self];
   [aboutmenuitem setAction:@selector(showAbout:)];
-  
-//  helpwindowcontroller = nil;
-
 }
 
 
 - (void)dealloc{
-  [aboutwindowcontroller release];
   [aboutWindowNibObjects release];
-//  [helpwindowcontroller release];
   [super dealloc];
 }
 
@@ -64,48 +68,10 @@ NAString* mandTranslate(NAInt id, ...){
 // Note: the sender is needed as these methods are used as an action.
 - (void)showAbout:(id)sender{
   NA_UNUSED(sender);
-  
-  BOOL nibloaded = NA_FALSE;
-  if(!aboutwindowcontroller){
-    nibloaded = [ManderApp loadNibNamed:@"MandAboutWindow" ifNotNil:aboutwindowcontroller owner:self topLevelObjects:&aboutWindowNibObjects];
-  }
-  
-  if(nibloaded){
-    [aboutwindowcontroller setApplicationDescription:desc];
-    [aboutwindowcontroller showDialog];
-  }
+  naSetAboutWindowDescription(desc);
+  naShowWindow(aboutWindow);
 }
 
-
-
-//- (void)setHelpDocument:(NSURL*)url{
-//  if(!helpwindowcontroller){
-//    helpwindowcontroller = [[MandHelpWindowController alloc] init];
-//  }
-//  [helpwindowcontroller setBaseURL:url];
-//
-//  [helpMenuItem setTarget:self];
-//  [helpMenuItem setAction:@selector(showHelp:)];
-//}
-
-
-
-// Note: the sender is needed as these methods are used as an action.
-//- (void)showHelp:(id)sender{
-//  NA_UNUSED(sender);
-//  if(helpwindowcontroller){[helpwindowcontroller showDialog];}
-//}
-
-
-
-- (NAString*)newApplicationNameString{
-  NSString* applicationname = [[NSBundle mainBundle] localizedStringForKey:@"CFBundleDisplayName" value:nil table:@"InfoPlist"];
-  if(!applicationname){
-    applicationname = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-  }
-  NAString* retstring = naNewStringWithFormat("%s", [applicationname UTF8String]);
-  return retstring;
-}
 
 
 
@@ -113,11 +79,6 @@ NAString* mandTranslate(NAInt id, ...){
   desc = newdesc;
 }
 
-
-
-- (NAInt)getManderAppTranslatorGroup{
-  return manderAppTranslatorGroup;
-}
 
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects{

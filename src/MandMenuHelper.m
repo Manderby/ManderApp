@@ -2,6 +2,7 @@
 #import "ManderApp.h"
 #import "MandMenuHelper.h"
 #include "ManderAppTranslations.h"
+#include "MandCocoaHelper.h"
 
 
 
@@ -23,7 +24,7 @@ void trySetMenuItemTranslation(NSMenuItem* item, NAInt id){
 
 void trySetMenuItemTranslationWithApplication(NSMenuItem* item, NAInt id){
   if(item){
-    NAString* applicationname = [(ManderApp*)NSApp newApplicationNameString];
+    NAString* applicationname = naNewBundleApplicationName();
     NAString* transstring = mandTranslate(id, naGetStringUTF8Pointer(applicationname));
     NSString* nsstring = [NSString stringWithUTF8String:naGetStringUTF8Pointer(transstring)];
     naDelete(transstring);

@@ -57,5 +57,4 @@ void* allocNSColor(void);
 void* allocNSColorWithLinearRGBA(const float* rgba);
 void naTellNSColorSet(void* nscolor);
 
-
 #endif
