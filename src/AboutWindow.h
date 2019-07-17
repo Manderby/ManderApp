@@ -2,4 +2,4 @@
 #include "NAUI.h"
 
 NAWindow* createAboutWindow();
-void naSetAboutWindowDescription(const NAUTF8Char* desc);
+void mandSetAboutWindowDescription(const NAUTF8Char* desc);

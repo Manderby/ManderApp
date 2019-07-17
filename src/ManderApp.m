@@ -68,7 +68,7 @@ NAString* mandTranslate(NAInt id, ...){
 // Note: the sender is needed as these methods are used as an action.
 - (void)showAbout:(id)sender{
   NA_UNUSED(sender);
-  naSetAboutWindowDescription(desc);
+  mandSetAboutWindowDescription(desc);
   naShowWindow(aboutWindow);
 }
 

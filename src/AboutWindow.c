@@ -23,7 +23,7 @@ NABool pressAboutDone(void* controllerdata, NAUIElement* uielement, NAUICommand 
 NAWindow* createAboutWindow(){
   NAString* bundleApplicationName = naNewBundleApplicationName();
 
-  NARect windowrect = naMakeRectS(20, 280, 340, 398);
+  NARect windowrect = naMakeRectS(20, 280, 340, 388);
   const NAUTF8Char* aboutWindowTitleFormatString = naTranslate(manderAppTranslatorGroup, MandAbout);
   NAString* aboutWindowTitleString = naNewStringWithFormat(aboutWindowTitleFormatString, naGetStringUTF8Pointer(bundleApplicationName));
   aboutWindow = naNewWindow(naGetStringUTF8Pointer(aboutWindowTitleString), windowrect, NA_FALSE);
@@ -63,7 +63,7 @@ NAWindow* createAboutWindow(){
   naDelete(bundleResourcePath);
   naAddSpaceChild(space, manderCSpace);
 
-  manderCLink = naNewLabel("http://manderc.com", naMakeRectS(20, 70, 300, 22));
+  manderCLink = naNewLabel("http://manderc.com", naMakeRectS(20, 65, 300, 22));
   naSetLabelTextAlignment(manderCLink, NA_TEXT_ALIGNMENT_CENTER);
   naSetLabelLink(manderCLink, "http://manderc.com");
   naAddSpaceChild(space, manderCLink);
@@ -79,6 +79,6 @@ NAWindow* createAboutWindow(){
 
 
 
-void naSetAboutWindowDescription(const NAUTF8Char* desc){
+void mandSetAboutWindowDescription(const NAUTF8Char* desc){
   naSetLabelText(appDesc, desc);
 }
