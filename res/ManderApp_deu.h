@@ -4,6 +4,9 @@
 //
 NA_LOC_LANG("deu");
 
+// Strings for the application
+NA_LOC(MandNewVersionAlertTitle,   "Willkommen zu Version %s");
+
 // Strings for MandAboutWindowController.m
 // The %s denotes the application name
 NA_LOC(MandAbout,          "Über %s");

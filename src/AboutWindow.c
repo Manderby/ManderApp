@@ -14,13 +14,17 @@ NAButton* doneButton;
 
 
 NABool pressAboutDone(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(controllerdata);
+  NA_UNUSED(uielement);
+  NA_UNUSED(command);
+  NA_UNUSED(arg);
   naCloseWindow(aboutWindow);
   return NA_TRUE;
 }
 
 
 
-NAWindow* createAboutWindow(){
+NAWindow* createAboutWindow(void){
   NAString* bundleApplicationName = naNewBundleApplicationName();
 
   NARect windowrect = naMakeRectS(20, 280, 340, 388);

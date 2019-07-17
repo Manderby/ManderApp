@@ -6,6 +6,8 @@ extern NAInt manderAppTranslatorGroup;
 #define MANDER_APP_TRANSLATE(id) naTranslate(manderAppTranslatorGroup, id)
 
 enum{
+  MandNewVersionAlertTitle,
+  
   MandAbout,
   MandPreferences,
   MandDone,

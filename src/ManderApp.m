@@ -2,11 +2,13 @@
 #import "ManderApp.h"
 #include "MandCocoaHelper.h"
 #include "ManderAppTranslations.h"
+#include "ManderAppPreferences.h"
 #include "AboutWindow.h"
 
 
 
 NAInt manderAppTranslatorGroup;
+const char* ManderAppPrefLastOpenedVersion = "lastOpenedVersion";
 
 
 
@@ -77,6 +79,26 @@ NAString* mandTranslate(NAInt id, ...){
 
 - (void)setApplicationDescription:(const NAUTF8Char*) newdesc{
   desc = newdesc;
+}
+
+
+
+- (void)alertNewVersion:(NAInt)infoTextId translatorGroup:(NAInt)translatorGroup{
+  NAString* curVersion = naNewBundleVersionString();
+  NAString* lastOpenedVersion = naNewPreferencesString(ManderAppPrefLastOpenedVersion);
+  if(!naEqualStringToString(curVersion, lastOpenedVersion, NA_TRUE)){
+    naSetPreferencesString(ManderAppPrefLastOpenedVersion, curVersion);
+    
+    NSAlert* alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSInformationalAlertStyle;
+    NSString* formatstring = [NSString stringWithUTF8String:naTranslate(manderAppTranslatorGroup, MandNewVersionAlertTitle)];
+    alert.messageText = [NSString stringWithFormat:formatstring, naGetStringUTF8Pointer(curVersion)];
+    alert.informativeText = [NSString stringWithUTF8String:naTranslate(translatorGroup, infoTextId)];
+    [alert runModal];
+    [alert release];
+  }
+  naDelete(lastOpenedVersion);
+  naDelete(curVersion);
 }
 
 

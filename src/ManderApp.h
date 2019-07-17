@@ -29,6 +29,7 @@ NAString* mandTranslate(NAInt id, ...);
 }
 
 - (void)setApplicationDescription:(const NAUTF8Char*) desc;
+- (void)alertNewVersion:(NAInt)infoTextId translatorGroup:(NAInt)translatorGroup;
 
 + (BOOL)loadNibNamed:(NSString*)nibName ifNotNil:(id)testObject owner:(id)owner topLevelObjects:(NSArray**)objects;
 + (NSCursor*)allocCursorFromBasename:(NSString*)basename pointX:(CGFloat)x pointY:(CGFloat)y;
