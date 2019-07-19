@@ -14,15 +14,12 @@
 
 
 
-NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder);
-
 
 NAString* mandTranslate(NAInt id, ...);
 
 
 @interface ManderApp : NSApplication <NSApplicationDelegate> {
   IBOutlet NSMenu* menu;
-  NSArray* aboutWindowNibObjects;
   const NAUTF8Char* desc;
   
   NAWindow* aboutWindow;
@@ -37,7 +34,5 @@ NAString* mandTranslate(NAInt id, ...);
 + (CGFloat)getScrollingDeltaX:(NSEvent*)event;
 + (CGFloat)getScrollingDeltaY:(NSEvent*)event;
 + (ModifierKeyState)makeModifierKeyState:(NSEvent*)event;
-+ (CGFloat)getWindowBottomBorder;
-+ (void)openDocumentWithURL:(NSURL*)url;
 
 @end

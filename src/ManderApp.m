@@ -4,17 +4,12 @@
 #include "ManderAppTranslations.h"
 #include "ManderAppPreferences.h"
 #include "AboutWindow.h"
+#include "NAUI.h"
 
 
 
 NAInt manderAppTranslatorGroup;
 const char* ManderAppPrefLastOpenedVersion = "lastOpenedVersion";
-
-
-
-NSURL* urlForFile(const NAUTF8Char* basename, const NAUTF8Char* suffix, const NAUTF8Char* folder){
-  return [[NSBundle mainBundle] URLForResource:[NSString stringWithUTF8String:basename] withExtension:[NSString stringWithUTF8String:suffix] subdirectory:[NSString stringWithUTF8String:folder]];
-}
 
 
 
@@ -39,30 +34,25 @@ NAString* mandTranslate(NAInt id, ...){
 }
 
 
+
 - (void)applicationWillFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
-
   manderAppTranslatorGroup = naRegisterTranslatorGroup();
   #include "ManderApp_eng.h"
   #include "ManderApp_deu.h"
 }
+
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification{
   NA_UNUSED(notification);
 
   aboutWindow = createAboutWindow();
 
-  aboutWindowNibObjects = nil;
   NSMenu* applicationmenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
   NSMenuItem* aboutmenuitem = [applicationmenu itemAtIndex:0];
   [aboutmenuitem setTarget:self];
   [aboutmenuitem setAction:@selector(showAbout:)];
-}
-
-
-- (void)dealloc{
-  [aboutWindowNibObjects release];
-  [super dealloc];
 }
 
 
@@ -73,7 +63,6 @@ NAString* mandTranslate(NAInt id, ...){
   mandSetAboutWindowDescription(desc);
   naShowWindow(aboutWindow);
 }
-
 
 
 
@@ -92,10 +81,12 @@ NAString* mandTranslate(NAInt id, ...){
     NSAlert* alert = [[NSAlert alloc] init];
     alert.alertStyle = NSInformationalAlertStyle;
     NSString* formatstring = [NSString stringWithUTF8String:naTranslate(manderAppTranslatorGroup, MandNewVersionAlertTitle)];
-    alert.messageText = [NSString stringWithFormat:formatstring, naGetStringUTF8Pointer(curVersion)];
+    NAString* applicationname = naNewBundleApplicationName();
+    alert.messageText = [NSString stringWithFormat:formatstring, naGetStringUTF8Pointer(applicationname), naGetStringUTF8Pointer(curVersion)];
     alert.informativeText = [NSString stringWithUTF8String:naTranslate(translatorGroup, infoTextId)];
     [alert runModal];
     [alert release];
+    naDelete(applicationname);
   }
   naDelete(lastOpenedVersion);
   naDelete(curVersion);
@@ -192,32 +183,6 @@ NAString* mandTranslate(NAInt id, ...){
   return mks;
 }
 
-
-
-+ (CGFloat)getWindowBottomBorder{
-  CGFloat border = 22.f;    // This corresponds to the default bottom border
-                            // thickness in recent OSX versions. There seems
-                            // to be no other way of defining it with a
-                            // constant
-  return border;
-}
-
-
-
-+ (void)openDocumentWithURL:(NSURL*)url{
-  NSDocumentController* documentcontroller = [NSDocumentController sharedDocumentController];
-  if([documentcontroller respondsToSelector:@selector(openDocumentWithContentsOfURL:display:completionHandler:)]){
-    #if defined __MAC_10_7
-      [documentcontroller openDocumentWithContentsOfURL:url display:YES completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error){
-        NA_UNUSED(document);
-        NA_UNUSED(documentWasAlreadyOpen);
-        NA_UNUSED(error);
-      }];
-    #endif
-  }else{
-    [documentcontroller openDocumentWithContentsOfURL:url display:YES error:nil];
-  }
-}
 
 
 @end
