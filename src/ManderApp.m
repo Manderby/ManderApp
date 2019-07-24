@@ -72,7 +72,7 @@ NAString* mandTranslate(NAInt id, ...){
 
 
 
-- (void)alertNewVersion:(NAInt)infoTextId translatorGroup:(NAInt)translatorGroup{
+- (void)alertNewVersion:(const NAUTF8Char*)infoText{
   NAString* curVersion = naNewBundleVersionString();
   NAString* lastOpenedVersion = naNewPreferencesString(ManderAppPrefLastOpenedVersion);
   if(!naEqualStringToString(curVersion, lastOpenedVersion, NA_TRUE)){
@@ -83,7 +83,7 @@ NAString* mandTranslate(NAInt id, ...){
     NSString* formatstring = [NSString stringWithUTF8String:naTranslate(manderAppTranslatorGroup, MandNewVersionAlertTitle)];
     NAString* applicationname = naNewBundleApplicationName();
     alert.messageText = [NSString stringWithFormat:formatstring, naGetStringUTF8Pointer(applicationname), naGetStringUTF8Pointer(curVersion)];
-    alert.informativeText = [NSString stringWithUTF8String:naTranslate(translatorGroup, infoTextId)];
+    alert.informativeText = [NSString stringWithUTF8String:infoText];
     [alert runModal];
     [alert release];
     naDelete(applicationname);
