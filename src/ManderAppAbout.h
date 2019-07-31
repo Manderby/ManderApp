@@ -1,5 +1,6 @@
 
 #include "NAUI.h"
 
-NAWindow* createAboutWindow(void);
+void mandCreateAboutWindow(void);
 void mandSetAboutWindowDescription(const NAUTF8Char* desc);
+void mandShowAboutWindow(void);

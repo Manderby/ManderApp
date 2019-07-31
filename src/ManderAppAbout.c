@@ -1,5 +1,5 @@
 
-#include "AboutWindow.h"
+#include "ManderAppAbout.h"
 #include "ManderAppTranslations.h"
 
 NAWindow* aboutWindow;
@@ -24,11 +24,11 @@ NABool pressAboutDone(void* controllerdata, NAUIElement* uielement, NAUICommand 
 
 
 
-NAWindow* createAboutWindow(void){
+void mandCreateAboutWindow(void){
   NAString* bundleApplicationName = naNewBundleApplicationName();
 
   NARect windowrect = naMakeRectS(20, 280, 340, 388);
-  const NAUTF8Char* aboutWindowTitleFormatString = naTranslate(manderAppTranslatorGroup, MandAbout);
+  const NAUTF8Char* aboutWindowTitleFormatString = mandTranslate(MandAbout);
   NAString* aboutWindowTitleString = naNewStringWithFormat(aboutWindowTitleFormatString, naGetStringUTF8Pointer(bundleApplicationName));
   aboutWindow = naNewWindow(naGetStringUTF8Pointer(aboutWindowTitleString), windowrect, NA_FALSE);
   naDelete(aboutWindowTitleString);
@@ -48,7 +48,7 @@ NAWindow* createAboutWindow(void){
 
   NAString* bundleVersionString = naNewBundleVersionString();
   NAString* bundleBuildString = naNewBundleBuildString();
-  const NAUTF8Char* aboutVersionFormatString = naTranslate(manderAppTranslatorGroup, MandVersionBuild);
+  const NAUTF8Char* aboutVersionFormatString = mandTranslate(MandVersionBuild);
   NAString* aboutVersionString = naNewStringWithFormat(aboutVersionFormatString, naGetStringUTF8Pointer(bundleVersionString), naGetStringUTF8Pointer(bundleBuildString));
   appVersion = naNewLabel(naGetStringUTF8Pointer(aboutVersionString), naMakeRectS(20, 180, 300, 22));
   naDelete(aboutVersionString);
@@ -72,17 +72,21 @@ NAWindow* createAboutWindow(void){
   naSetLabelLink(manderCLink, "http://manderc.com");
   naAddSpaceChild(space, manderCLink);
 
-  doneButton = naNewButton(naTranslate(manderAppTranslatorGroup, MandDone), naMakeRectS(130, 20, 80, 24));
+  doneButton = naNewButton(mandTranslate(MandDone), naMakeRectS(130, 20, 80, 24));
   naAddUIReaction(NA_NULL, doneButton, NA_UI_COMMAND_PRESSED, pressAboutDone);
   naAddSpaceChild(space, doneButton);
 
   naDelete(bundleApplicationName);
-
-  return aboutWindow;
 }
 
 
 
 void mandSetAboutWindowDescription(const NAUTF8Char* desc){
   naSetLabelText(appDesc, desc);
+}
+
+
+
+void mandShowAboutWindow(void){
+  naShowWindow(aboutWindow);
 }
