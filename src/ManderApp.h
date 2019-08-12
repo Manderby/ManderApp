@@ -1,8 +1,8 @@
 
 #include "NAString.h"
 
-void mandPrestartupManderApp(void);
-void mandPoststartupManderApp(void);
+void mandInitManderApp(void);
+void mandCreateUI(void);
 
 void mandAlertNewVersion(const NAUTF8Char* infoText);
 

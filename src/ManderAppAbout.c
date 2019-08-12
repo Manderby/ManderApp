@@ -13,8 +13,8 @@ NAButton* doneButton;
 
 
 
-NABool pressAboutDone(void* controllerdata, NAUIElement* uielement, NAUICommand command, void* arg){
-  NA_UNUSED(controllerdata);
+NABool pressAboutDone(void* controller, NAUIElement* uielement, NAUICommand command, void* arg){
+  NA_UNUSED(controller);
   NA_UNUSED(uielement);
   NA_UNUSED(command);
   NA_UNUSED(arg);
@@ -24,7 +24,7 @@ NABool pressAboutDone(void* controllerdata, NAUIElement* uielement, NAUICommand 
 
 
 
-void mandCreateAboutWindow(void){
+void mandCreateAboutController(void){
   NAString* bundleApplicationName = naNewBundleApplicationName();
 
   NARect windowrect = naMakeRectS(20, 280, 340, 388);
@@ -81,12 +81,12 @@ void mandCreateAboutWindow(void){
 
 
 
-void mandSetAboutWindowDescription(const NAUTF8Char* desc){
+void mandSetAboutDescription(const NAUTF8Char* desc){
   naSetLabelText(appDesc, desc);
 }
 
 
 
-void mandShowAboutWindow(void){
+void mandShowAboutController(void){
   naShowWindow(aboutWindow);
 }

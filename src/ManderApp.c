@@ -5,18 +5,13 @@
 #include "ManderAppAbout.h"
 #include "NAUI.h"
 
-void mandPrestartupManderApp(void){
+void mandInitManderApp(void){
   mandInitManderAppTranslations();
   mandInitManderAppPrefs();
 }
 
-void mandPoststartupManderApp(void){
-  mandCreateAboutWindow();
-
-//  NSMenu* applicationmenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
-//  NSMenuItem* aboutmenuitem = [applicationmenu itemAtIndex:0];
-//  [aboutmenuitem setTarget:self];
-//  [aboutmenuitem setAction:@selector(showAbout:)];
+void mandCreateUI(void){
+  mandCreateAboutController();
 }
 
 void mandAlertNewVersion(const NAUTF8Char* infoText){
