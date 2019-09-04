@@ -2,5 +2,5 @@
 #include "NAUI.h"
 
 void mandCreateAboutController(void);
-void mandSetAboutDescription(const NAUTF8Char* desc);
+void mandSetAboutDescriptionAndHelpURL(const NAUTF8Char* desc, const NAUTF8Char* helpURL);
 void mandShowAboutController(void);

@@ -12,4 +12,5 @@ NA_LOC(MandNewVersionAlertTitle,   "Welcome to %s Version %s");
 NA_LOC(MandAbout,          "About %s");
 NA_LOC(MandDone,           "Done");
 NA_LOC(MandVersionBuild,   "Version %s (Build %s)");
+NA_LOC(MandOnlineHelp,     "Online Help");
 

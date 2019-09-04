@@ -5,10 +5,9 @@ enum{
   MandNewVersionAlertTitle,
   
   MandAbout,
-  MandPreferences,
   MandDone,
-  MandHelp,
   MandVersionBuild,
+  MandOnlineHelp,
 };
 
 const NAUTF8Char* mandTranslate(NAInt id);
