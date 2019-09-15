@@ -9,6 +9,6 @@ const NAUTF8Char* mandTranslate(NAInt id){
 
 void mandInitManderAppTranslations(void){
   manderAppTranslatorGroup = naRegisterTranslatorGroup();
-  #include "ManderApp_eng.h"
-  #include "ManderApp_deu.h"
+  #include "../res/ManderApp_eng.h"
+  #include "../res/ManderApp_deu.h"
 }

@@ -1,6 +1,6 @@
 
 #include "ManderAppPreferences.h"
-#include "NAUI.h"
+#include MAND_NALIB_PATH(NAUI.h)
 
 const char* ManderAppPrefs[ManderAppPrefsCount] = {
   "lastOpenedVersion"
