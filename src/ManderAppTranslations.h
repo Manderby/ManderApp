@@ -1,5 +1,6 @@
 
-#include "NATranslator.h"
+#include "ManderApp.h"
+#include MAND_NALIB_PATH(NATranslator.h)
 
 enum{
   MandNewVersionAlertTitle,

@@ -1,5 +1,6 @@
 
-#include "NAPreferences.h"
+#include "ManderApp.h"
+#include MAND_NALIB_PATH(NAPreferences.h)
 
 enum{
   LastOpenedVersion,

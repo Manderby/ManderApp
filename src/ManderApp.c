@@ -3,7 +3,7 @@
 #include "ManderAppPreferences.h"
 #include "ManderAppTranslations.h"
 #include "ManderAppAbout.h"
-#include "NAUI.h"
+#include MAND_NALIB_PATH(NAUI.h)
 
 void mandInitManderApp(void){
   mandInitManderAppTranslations();
