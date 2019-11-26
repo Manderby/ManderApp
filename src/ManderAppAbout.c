@@ -32,7 +32,7 @@ void mandCreateAboutController(void){
   
   NASpace* space = naGetWindowContentSpace(aboutWindow);
 
-  NAString* iconPath = naNewApplicationResourcePath(NA_NULL, "icon", "png");
+  NAString* iconPath = naNewApplicationIconPath();
   NABabyImage* iconImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(iconPath));
   NAUIImage* iconCUIImage = naAllocUIImage(iconImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_ZERO);
   naReleaseBabyImage(iconImage);
@@ -45,25 +45,25 @@ void mandCreateAboutController(void){
   naSetLabelTextAlignment(appName, NA_TEXT_ALIGNMENT_CENTER);
   naAddSpaceChild(space, appName, naMakePos(20., 162.));
 
-  //NAString* bundleVersionString = naNewApplicationVersionString();
-  //NAString* bundleBuildString = naNewApplicationBuildString();
-  //const NAUTF8Char* aboutVersionFormatString = mandTranslate(MandVersionBuild);
-  //NAString* aboutVersionString = naNewStringWithFormat(aboutVersionFormatString, naGetStringUTF8Pointer(bundleVersionString), naGetStringUTF8Pointer(bundleBuildString));
-  //appVersion = naNewLabel(naGetStringUTF8Pointer(aboutVersionString), naMakeSize(300, 22));
-  //naDelete(aboutVersionString);
-  //naDelete(bundleVersionString);
-  //naDelete(bundleBuildString);
-  //naSetLabelTextAlignment(appVersion, NA_TEXT_ALIGNMENT_CENTER);
-  //naAddSpaceChild(space, appVersion, naMakePos(20., 140.));
+  NAString* bundleVersionString = naNewApplicationVersionString();
+  NAString* bundleBuildString = naNewApplicationBuildString();
+  const NAUTF8Char* aboutVersionFormatString = mandTranslate(MandVersionBuild);
+  NAString* aboutVersionString = naNewStringWithFormat(aboutVersionFormatString, naGetStringUTF8Pointer(bundleVersionString), naGetStringUTF8Pointer(bundleBuildString));
+  appVersion = naNewLabel(naGetStringUTF8Pointer(aboutVersionString), naMakeSize(300, 22));
+  naDelete(aboutVersionString);
+  naDelete(bundleVersionString);
+  naDelete(bundleBuildString);
+  naSetLabelTextAlignment(appVersion, NA_TEXT_ALIGNMENT_CENTER);
+  naAddSpaceChild(space, appVersion, naMakePos(20., 140.));
 
-  appDesc = naNewLabel("", naMakeSize(300, 66));
+  appDesc = naNewLabel("", naMakeSize(300, 56));
   naSetLabelTextAlignment(appDesc, NA_TEXT_ALIGNMENT_CENTER);
-  naAddSpaceChild(space, appDesc, naMakePos(20., 77.));
+  naAddSpaceChild(space, appDesc, naMakePos(20., 76.));
 
   helpLink = naNewLabel(mandTranslate(MandOnlineHelp), naMakeSize(300, 22));
   naSetLabelTextAlignment(helpLink, NA_TEXT_ALIGNMENT_CENTER);
   naSetLabelLink(helpLink, "http://manderc.com");
-  naAddSpaceChild(space, helpLink, naMakePos(20., 55.));
+  naAddSpaceChild(space, helpLink, naMakePos(20., 54.));
 
   //NAString* manderCPath = naNewApplicationResourcePath("", "manderc", "png");
   //NABabyImage* manderCImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(manderCPath));
