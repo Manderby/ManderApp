@@ -32,11 +32,13 @@ void mandCreateAboutController(void){
   
   NASpace* space = naGetWindowContentSpace(aboutWindow);
 
-  //iconSpace = naNewImageSpace(naMakeSize(128, 128));
-  //NAString* bundleIconPath = naNewApplicationIconPath();
-  //naSetImageSpacePath(iconSpace, naGetStringUTF8Pointer(bundleIconPath));
-  //naDelete(bundleIconPath);
-  //naAddSpaceChild(space, iconSpace, naMakePos(106., 200.));
+  NAString* iconPath = naNewApplicationResourcePath(NA_NULL, "icon", "png");
+  NABabyImage* iconImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(iconPath));
+  NAUIImage* iconCUIImage = naAllocUIImage(iconImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_ZERO);
+  naReleaseBabyImage(iconImage);
+  naDelete(iconPath);
+  iconSpace = naNewImageSpace(iconCUIImage, naMakeSize(128, 128));
+  naAddSpaceChild(space, iconSpace, naMakePos(106., 200.));
 
   appName = naNewLabel(naGetStringUTF8Pointer(bundleApplicationName), naMakeSize(300, 22));
   naSetLabelFontKind(appName, NA_FONT_KIND_TITLE);
@@ -56,18 +58,21 @@ void mandCreateAboutController(void){
 
   appDesc = naNewLabel("", naMakeSize(300, 66));
   naSetLabelTextAlignment(appDesc, NA_TEXT_ALIGNMENT_CENTER);
-  naAddSpaceChild(space, appDesc, naMakePos(20., 74.));
+  naAddSpaceChild(space, appDesc, naMakePos(20., 77.));
 
   helpLink = naNewLabel(mandTranslate(MandOnlineHelp), naMakeSize(300, 22));
   naSetLabelTextAlignment(helpLink, NA_TEXT_ALIGNMENT_CENTER);
   naSetLabelLink(helpLink, "http://manderc.com");
-  naAddSpaceChild(space, helpLink, naMakePos(20., 65.));
+  naAddSpaceChild(space, helpLink, naMakePos(20., 55.));
 
-//  manderCSpace = naNewImageSpace(naMakeSize(100, 21));
-//  NAString* bundleResourcePath = naNewApplicationResourcePath("manderc", "png");
-//  naSetImageSpacePath(manderCSpace, naGetStringUTF8Pointer(bundleResourcePath));
-//  naDelete(bundleResourcePath);
-//  naAddSpaceChild(space, manderCSpace, naMakePos(120., 70.));
+  //NAString* manderCPath = naNewApplicationResourcePath("", "manderc", "png");
+  //NABabyImage* manderCImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(manderCPath));
+  //NAUIImage* manderCUIImage = naAllocUIImage(manderCImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_ZERO);
+  //naReleaseBabyImage(manderCImage);
+  //naDelete(manderCPath);
+  //manderCSpace = naNewImageSpace(manderCUIImage, naMakeSize(100, 21));
+  //naAddSpaceChild(space, manderCSpace, naMakePos(120., 70.));
+  // todo: delete manderCUIImage
 
   doneButton = naNewPushButton(mandTranslate(MandDone), naMakeSize(80, 24));
   naAddUIReaction(doneButton, NA_UI_COMMAND_PRESSED, pressAboutDone, NA_NULL);
