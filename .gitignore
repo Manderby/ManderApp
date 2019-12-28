@@ -1,6 +1,10 @@
 .DS_Store
+.vs
+*xcodeproj/manderim.*
+*xcshareddata*
+*xcuserdata*
+*vcxproj.filters
+*vcxproj.user
+CONERR*
 build/
-publishedbundles/
-Debug/
-Release/
-*.user
+bin/
