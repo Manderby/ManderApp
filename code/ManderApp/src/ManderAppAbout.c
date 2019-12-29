@@ -27,6 +27,7 @@ void mandCreateAboutController(void){
   NARect windowrect = naMakeRectS(20, 260, 340, 348);
   const NAUTF8Char* aboutWindowTitleFormatString = mandTranslate(MandAbout);
   NAString* aboutWindowTitleString = naNewStringWithFormat(aboutWindowTitleFormatString, naGetStringUTF8Pointer(bundleApplicationName));
+  // We have no storage tag as the about window is not really part of the application
   aboutWindow = naNewWindow(naGetStringUTF8Pointer(aboutWindowTitleString), windowrect, NA_FALSE, 0);
   naDelete(aboutWindowTitleString);
   
@@ -98,3 +99,13 @@ void mandSetAboutDescriptionAndHelpURL(const NAUTF8Char* desc, const NAUTF8Char*
 void mandShowAboutController(void){
   naShowWindow(aboutWindow);
 }
+
+
+
+void mandSetAboutWindowStorageTag(NAInt storageTag){
+  NARect rect = naGetUIElementRect(aboutWindow, NA_NULL, NA_FALSE);
+  rect = naSetWindowStorageTag(aboutWindow, storageTag, rect, NA_FALSE);
+  naSetWindowRect(aboutWindow, rect);
+}
+
+

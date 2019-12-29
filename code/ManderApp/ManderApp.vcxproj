@@ -19,23 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ManderApp.h" />
-    <ClInclude Include="ManderAppAbout.h" />
-    <ClInclude Include="ManderAppPreferences.h" />
-    <ClInclude Include="ManderAppTranslations.h" />
-    <ClInclude Include="res\ManderApp_deu.h" />
-    <ClInclude Include="res\ManderApp_eng.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ManderApp.c" />
-    <ClCompile Include="ManderAppAbout.c" />
-    <ClCompile Include="ManderAppPreferences.c" />
-    <ClCompile Include="ManderAppTranslations.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\NALib\src\NALib.vcxproj">
+    <ProjectReference Include="..\..\..\NALib\code\NALib\NALib.vcxproj">
       <Project>{d03034cf-5ce8-4e68-8fd9-d5820e2745ba}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="res\ManderApp_deu.h" />
+    <ClInclude Include="res\ManderApp_eng.h" />
+    <ClInclude Include="src\ManderApp.h" />
+    <ClInclude Include="src\ManderAppAbout.h" />
+    <ClInclude Include="src\ManderAppPreferences.h" />
+    <ClInclude Include="src\ManderAppTranslations.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ManderApp.c" />
+    <ClCompile Include="src\ManderAppAbout.c" />
+    <ClCompile Include="src\ManderAppPreferences.c" />
+    <ClCompile Include="src\ManderAppTranslations.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -89,20 +89,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)..\..\bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)..\..\build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(ProjectName)_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(ProjectName)_$(Configuration)_$(Platform)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -111,6 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
       <Command>
@@ -124,6 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
       <Command>
@@ -139,6 +141,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -158,6 +161,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NA_CONFIG_COMPILE_GUI=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
