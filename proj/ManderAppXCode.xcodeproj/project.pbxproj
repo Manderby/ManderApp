@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		909ECCFC23B90D73002CA78D /* ManderApp_deu.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ECCF123B90D73002CA78D /* ManderApp_deu.h */; };
+		909ECCFD23B90D73002CA78D /* ManderApp_eng.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ECCF223B90D73002CA78D /* ManderApp_eng.h */; };
+		909ECCFE23B90D73002CA78D /* ManderApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ECCF423B90D73002CA78D /* ManderApp.h */; };
+		909ECCFF23B90D73002CA78D /* ManderAppPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECCF523B90D73002CA78D /* ManderAppPreferences.c */; };
+		909ECD0023B90D73002CA78D /* ManderAppAbout.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECCF623B90D73002CA78D /* ManderAppAbout.c */; };
+		909ECD0123B90D73002CA78D /* ManderAppTranslations.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECCF723B90D73002CA78D /* ManderAppTranslations.c */; };
+		909ECD0223B90D73002CA78D /* ManderApp.c in Sources */ = {isa = PBXBuildFile; fileRef = 909ECCF823B90D73002CA78D /* ManderApp.c */; };
+		909ECD0323B90D73002CA78D /* ManderAppPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ECCF923B90D73002CA78D /* ManderAppPreferences.h */; };
+		909ECD0423B90D73002CA78D /* ManderAppAbout.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ECCFA23B90D73002CA78D /* ManderAppAbout.h */; };
+		909ECD0523B90D73002CA78D /* ManderAppTranslations.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ECCFB23B90D73002CA78D /* ManderAppTranslations.h */; };
+		909ECD2723B90EAC002CA78D /* libNALibGUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ECD1F23B90E7D002CA78D /* libNALibGUI.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		909ECD1C23B90E7D002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9036280323B8BBD5002F3698;
+			remoteInfo = NALib;
+		};
+		909ECD1E23B90E7D002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 909ECCDA23B90B33002CA78D;
+			remoteInfo = NALibGUI;
+		};
+		909ECD2023B90E7D002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9B2EA121716922700943D91;
+			remoteInfo = NALibTryout;
+		};
+		909ECD2223B90E7D002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 909EC6E523B8C06C002CA78D;
+			remoteInfo = NALibGUITryout;
+		};
+		909ECD2423B90EA6002CA78D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 909ECC2723B90B33002CA78D;
+			remoteInfo = NALibGUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		909ECCE723B90D49002CA78D /* libManderApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libManderApp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		909ECCEF23B90D73002CA78D /* ManderApp.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ManderApp.vcxproj; sourceTree = "<group>"; };
+		909ECCF123B90D73002CA78D /* ManderApp_deu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp_deu.h; sourceTree = "<group>"; };
+		909ECCF223B90D73002CA78D /* ManderApp_eng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp_eng.h; sourceTree = "<group>"; };
+		909ECCF423B90D73002CA78D /* ManderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderApp.h; sourceTree = "<group>"; };
+		909ECCF523B90D73002CA78D /* ManderAppPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppPreferences.c; sourceTree = "<group>"; };
+		909ECCF623B90D73002CA78D /* ManderAppAbout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppAbout.c; sourceTree = "<group>"; };
+		909ECCF723B90D73002CA78D /* ManderAppTranslations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderAppTranslations.c; sourceTree = "<group>"; };
+		909ECCF823B90D73002CA78D /* ManderApp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ManderApp.c; sourceTree = "<group>"; };
+		909ECCF923B90D73002CA78D /* ManderAppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppPreferences.h; sourceTree = "<group>"; };
+		909ECCFA23B90D73002CA78D /* ManderAppAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppAbout.h; sourceTree = "<group>"; };
+		909ECCFB23B90D73002CA78D /* ManderAppTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManderAppTranslations.h; sourceTree = "<group>"; };
+		909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NALibXCode.xcodeproj; path = ../../NALib/proj/NALibXCode.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		909ECCE523B90D49002CA78D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ECD2723B90EAC002CA78D /* libNALibGUI.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		909ECCDE23B90D49002CA78D = {
+			isa = PBXGroup;
+			children = (
+				909ECCEE23B90D73002CA78D /* ManderApp */,
+				909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */,
+				909ECCE823B90D49002CA78D /* Products */,
+				909ECD2623B90EAC002CA78D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		909ECCE823B90D49002CA78D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				909ECCE723B90D49002CA78D /* libManderApp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		909ECCEE23B90D73002CA78D /* ManderApp */ = {
+			isa = PBXGroup;
+			children = (
+				909ECCEF23B90D73002CA78D /* ManderApp.vcxproj */,
+				909ECCF023B90D73002CA78D /* res */,
+				909ECCF323B90D73002CA78D /* src */,
+			);
+			name = ManderApp;
+			path = ../code/ManderApp;
+			sourceTree = "<group>";
+		};
+		909ECCF023B90D73002CA78D /* res */ = {
+			isa = PBXGroup;
+			children = (
+				909ECCF123B90D73002CA78D /* ManderApp_deu.h */,
+				909ECCF223B90D73002CA78D /* ManderApp_eng.h */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		909ECCF323B90D73002CA78D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				909ECCF423B90D73002CA78D /* ManderApp.h */,
+				909ECCF523B90D73002CA78D /* ManderAppPreferences.c */,
+				909ECCF623B90D73002CA78D /* ManderAppAbout.c */,
+				909ECCF723B90D73002CA78D /* ManderAppTranslations.c */,
+				909ECCF823B90D73002CA78D /* ManderApp.c */,
+				909ECCF923B90D73002CA78D /* ManderAppPreferences.h */,
+				909ECCFA23B90D73002CA78D /* ManderAppAbout.h */,
+				909ECCFB23B90D73002CA78D /* ManderAppTranslations.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		909ECD1623B90E7D002CA78D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				909ECD1D23B90E7D002CA78D /* libNALib.a */,
+				909ECD1F23B90E7D002CA78D /* libNALibGUI.a */,
+				909ECD2123B90E7D002CA78D /* NALibTryout */,
+				909ECD2323B90E7D002CA78D /* NALibGUITryout */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		909ECD2623B90EAC002CA78D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		909ECCE323B90D49002CA78D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ECCFD23B90D73002CA78D /* ManderApp_eng.h in Headers */,
+				909ECCFE23B90D73002CA78D /* ManderApp.h in Headers */,
+				909ECD0323B90D73002CA78D /* ManderAppPreferences.h in Headers */,
+				909ECD0523B90D73002CA78D /* ManderAppTranslations.h in Headers */,
+				909ECD0423B90D73002CA78D /* ManderAppAbout.h in Headers */,
+				909ECCFC23B90D73002CA78D /* ManderApp_deu.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		909ECCE623B90D49002CA78D /* ManderApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 909ECCEB23B90D49002CA78D /* Build configuration list for PBXNativeTarget "ManderApp" */;
+			buildPhases = (
+				909ECCE323B90D49002CA78D /* Headers */,
+				909ECCE423B90D49002CA78D /* Sources */,
+				909ECCE523B90D49002CA78D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				909ECD2523B90EA6002CA78D /* PBXTargetDependency */,
+			);
+			name = ManderApp;
+			productName = ManderApp;
+			productReference = 909ECCE723B90D49002CA78D /* libManderApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		909ECCDF23B90D49002CA78D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Tobias Stamm";
+				TargetAttributes = {
+					909ECCE623B90D49002CA78D = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 909ECCE223B90D49002CA78D /* Build configuration list for PBXProject "ManderAppXCode" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 909ECCDE23B90D49002CA78D;
+			productRefGroup = 909ECCE823B90D49002CA78D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 909ECD1623B90E7D002CA78D /* Products */;
+					ProjectRef = 909ECD1523B90E7D002CA78D /* NALibXCode.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				909ECCE623B90D49002CA78D /* ManderApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		909ECD1D23B90E7D002CA78D /* libNALib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNALib.a;
+			remoteRef = 909ECD1C23B90E7D002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD1F23B90E7D002CA78D /* libNALibGUI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNALibGUI.a;
+			remoteRef = 909ECD1E23B90E7D002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD2123B90E7D002CA78D /* NALibTryout */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = NALibTryout;
+			remoteRef = 909ECD2023B90E7D002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		909ECD2323B90E7D002CA78D /* NALibGUITryout */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = NALibGUITryout;
+			remoteRef = 909ECD2223B90E7D002CA78D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		909ECCE423B90D49002CA78D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ECD0223B90D73002CA78D /* ManderApp.c in Sources */,
+				909ECD0123B90D73002CA78D /* ManderAppTranslations.c in Sources */,
+				909ECD0023B90D73002CA78D /* ManderAppAbout.c in Sources */,
+				909ECCFF23B90D73002CA78D /* ManderAppPreferences.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		909ECD2523B90EA6002CA78D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NALibGUI;
+			targetProxy = 909ECD2423B90EA6002CA78D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		909ECCE923B90D49002CA78D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		909ECCEA23B90D49002CA78D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		909ECCEC23B90D49002CA78D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "NA_CONFIG_COMPILE_GUI=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		909ECCED23B90D49002CA78D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "NA_CONFIG_COMPILE_GUI=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		909ECCE223B90D49002CA78D /* Build configuration list for PBXProject "ManderAppXCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909ECCE923B90D49002CA78D /* Debug */,
+				909ECCEA23B90D49002CA78D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		909ECCEB23B90D49002CA78D /* Build configuration list for PBXNativeTarget "ManderApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909ECCEC23B90D49002CA78D /* Debug */,
+				909ECCED23B90D49002CA78D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 909ECCDF23B90D49002CA78D /* Project object */;
+}
