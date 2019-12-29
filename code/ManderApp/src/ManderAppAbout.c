@@ -24,7 +24,7 @@ NABool pressAboutDone(NAReaction reaction){
 void mandCreateAboutController(void){
   NAString* bundleApplicationName = naNewApplicationName();
 
-  NARect windowrect = naMakeRectS(20, 260, 340, 348);
+  NARect windowrect = naMakeRectS(20, 300, 340, 348);
   const NAUTF8Char* aboutWindowTitleFormatString = mandTranslate(MandAbout);
   NAString* aboutWindowTitleString = naNewStringWithFormat(aboutWindowTitleFormatString, naGetStringUTF8Pointer(bundleApplicationName));
   // We have no storage tag as the about window is not really part of the application
