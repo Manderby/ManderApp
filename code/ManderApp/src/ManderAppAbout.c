@@ -63,7 +63,6 @@ void mandCreateAboutController(void){
 
   helpLink = naNewLabel(mandTranslate(MandOnlineHelp), naMakeSize(300, 22));
   naSetLabelTextAlignment(helpLink, NA_TEXT_ALIGNMENT_CENTER);
-  naSetLabelLink(helpLink, "http://manderc.com");
   naAddSpaceChild(space, helpLink, naMakePos(20., 54.));
 
   //NAString* manderCPath = naNewApplicationResourcePath("", "manderc", "png");
@@ -88,6 +87,12 @@ void mandCreateAboutController(void){
 
 
 void mandSetAboutDescriptionAndHelpURL(const NAUTF8Char* desc, const NAUTF8Char* helpURL){
+  if(!appDesc){
+    #ifndef NDEBUG
+        naError("UI not available. Probably a call to mandCreateUI is missing.");
+    #endif
+    return;
+  }
   naSetLabelText(appDesc, desc);
   if(helpURL){
     naSetLabelLink(helpLink, helpURL);
@@ -97,6 +102,12 @@ void mandSetAboutDescriptionAndHelpURL(const NAUTF8Char* desc, const NAUTF8Char*
 
 
 void mandShowAboutController(void){
+  if(!aboutWindow){
+    #ifndef NDEBUG
+        naError("UI not available. Probably a call to mandCreateUI is missing.");
+    #endif
+    return;
+  }
   naShowWindow(aboutWindow);
 }
 
