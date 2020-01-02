@@ -65,15 +65,6 @@ void mandCreateAboutController(void){
   naSetLabelTextAlignment(helpLink, NA_TEXT_ALIGNMENT_CENTER);
   naAddSpaceChild(space, helpLink, naMakePos(20., 54.));
 
-  //NAString* manderCPath = naNewApplicationResourcePath("", "manderc", "png");
-  //NABabyImage* manderCImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(manderCPath));
-  //NAUIImage* manderCUIImage = naAllocUIImage(manderCImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_ZERO);
-  //naReleaseBabyImage(manderCImage);
-  //naDelete(manderCPath);
-  //manderCSpace = naNewImageSpace(manderCUIImage, naMakeSize(100, 21));
-  //naAddSpaceChild(space, manderCSpace, naMakePos(120., 70.));
-  // todo: delete manderCUIImage
-
   doneButton = naNewPushButton(mandTranslate(MandDone), naMakeSize(80, 24));
   naAddUIReaction(doneButton, NA_UI_COMMAND_PRESSED, pressAboutDone, NA_NULL);
   naAddSpaceChild(space, doneButton, naMakePos(130., 20.));
