@@ -35,7 +35,7 @@ void mandCreateAboutController(void){
 
   NAString* iconPath = naNewApplicationIconPath();
   NABabyImage* iconImage = naCreateBabyImageFromFilePath(naGetStringUTF8Pointer(iconPath));
-  NAUIImage* iconCUIImage = naAllocUIImage(iconImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_ZERO);
+  NAUIImage* iconCUIImage = naNewUIImage(iconImage, NA_NULL, NA_UIIMAGE_RESOLUTION_2x, NA_BLEND_ZERO);
   naReleaseBabyImage(iconImage);
   naDelete(iconPath);
   iconSpace = naNewImageSpace(iconCUIImage, naMakeSize(128, 128));
