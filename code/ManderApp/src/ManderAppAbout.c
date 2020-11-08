@@ -40,6 +40,7 @@ void mandCreateAboutController(void){
   naDelete(iconPath);
   iconSpace = naNewImageSpace(iconCUIImage, naMakeSize(128, 128));
   naAddSpaceChild(space, iconSpace, naMakePos(106., 200.));
+  naRelease(iconCUIImage);
 
   appName = naNewLabel(naGetStringUTF8Pointer(bundleApplicationName), naMakeSize(300, 22));
   naSetLabelFontKind(appName, NA_FONT_KIND_TITLE);
