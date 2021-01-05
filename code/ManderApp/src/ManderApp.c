@@ -21,6 +21,7 @@ void mandCreateUI(void){
 void mandAlertNewVersion(const NAUTF8Char* infoText){
   NAString* curVersion = naNewApplicationVersionString();
   NAString* lastOpenedVersion = naNewPreferencesString(ManderAppPrefs[LastOpenedVersion]);
+//  if(1){
   if(!lastOpenedVersion || !naEqualStringToString(curVersion, lastOpenedVersion, NA_TRUE)){
     naSetPreferencesString(ManderAppPrefs[LastOpenedVersion], curVersion);
     
