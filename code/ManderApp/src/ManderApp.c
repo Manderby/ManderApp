@@ -5,6 +5,8 @@
 #include "ManderAppAbout.h"
 #include MAND_NALIB_PATH(NAUI.h)
 
+
+
 void mandInitManderApp(void){
   mandInitManderAppTranslations();
   mandInitManderAppPrefs();
