@@ -66,7 +66,7 @@ void mandCreateAboutController(void){
   naSetLabelTextAlignment(helpLink, NA_TEXT_ALIGNMENT_CENTER);
   naAddSpaceChild(space, helpLink, naMakePos(20., 54.));
 
-  doneButton = naNewPushButton(mandTranslate(MandDone), naMakeSize(80, 24));
+  doneButton = naNewTextButton(mandTranslate(MandDone), naMakeSize(80, 24), 0);
   naAddUIReaction(doneButton, NA_UI_COMMAND_PRESSED, pressAboutDone, NA_NULL);
   naAddSpaceChild(space, doneButton, naMakePos(130., 20.));
 
